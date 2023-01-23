@@ -1,0 +1,107 @@
+{
+    "topHeadlinesTitle": "Top headlines",
+    "@topHeadlinesTitle":{
+        "description": "Title section top headlines"
+    },
+
+    "everythingTitle": "Everything",
+    "@Everything":{
+        "description": "Title section everything"
+    },
+
+    "saved": "Saved",
+    "@saved":{
+        "description": "Title saved screen"
+    },
+
+    "shared": "Shared",
+    "@shared":{
+        "description": "Title shared screen"
+    },
+
+    "readTime": "{time} min read",
+    "@readTime":{
+        "description": "Time for reading article",
+        "placeholders":{
+        "time": {
+            "type": "int",
+            "example": "-"}
+        }
+    },
+
+    "searchArticles": "Search for articles",
+    "@searchArticles": {
+        "description": "Time for reading article"
+    },
+
+    "selectLanguage": "Select language",
+    "@selectLanguage": {
+      "description": "change language"
+    },
+
+    "articlesFound": "Articles found",
+    "@articlesFound": {
+      "description": ""
+    },
+
+    "settings": "Settings",
+    "@shared":{
+        "description": "Title settings screen"
+    },
+
+    "it": "Italian",
+    "@it":{
+        "description": "Italian language"
+    },
+
+    "en": "English",
+    "@en":{
+        "description": "English language"
+    },
+
+    "confirm": "Confirm",
+    "@confirm":{
+        "description": "Confirm"
+    },
+
+    "cancel": "Cancel",
+    "@cancel":{
+        "description": "Cancel"
+    },
+
+    "removed": "Removed from {page}",
+    "@removed":{
+        "description": "Removed message",
+        "placeholders":{
+        "page": {
+            "type": "String",
+            "example": "saved"}
+        }
+    },
+
+    "added": "Added to {page}",
+    "@added":{
+        "description": "Added message",
+        "placeholders":{
+        "page": {
+            "type": "String",
+            "example": "saved"}
+        }
+    },
+
+    "published": "Published in",
+    "@published":{
+        "description": "Published in"
+    },
+
+    "connect": "Connect your device to update news",
+    "@connect": {
+        "description": "Connect device"
+    },
+
+    "fail": "Failed to update news",
+    "@fail": {
+        "description": "Fail to update"
+    }
+
+}

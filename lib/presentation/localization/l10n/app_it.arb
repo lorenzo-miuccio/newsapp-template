@@ -1,0 +1,37 @@
+{
+    "topHeadlinesTitle": "Articoli in primo piano",
+
+    "everythingTitle": "Tutto",
+
+    "saved": "Salvati",
+
+    "shared": "Condivisi",
+
+    "readTime": "lettura {time} min",
+
+    "searchArticles": "Cerca articoli",
+
+    "selectLanguage": "Seleziona lingua",
+
+    "articlesFound": "Articoli trovati",
+
+    "settings": "Impostazioni",
+
+    "en": "Inglese",
+
+    "it": "Italiano",
+
+    "cancel": "Annulla",
+
+    "confirm": "Conferma",
+
+    "added": "Aggiunto ai {page}",
+
+    "removed": "Rimosso dai {page}",
+
+    "published": "Published in",
+
+    "connect": "Connetti il tuo dispositivo per aggiornare le notizie",
+
+    "fail": "Errore nell'aggiornamento delle notizie"
+}
