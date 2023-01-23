@@ -14,11 +14,10 @@ extension _DataErrorToNewsFetchStateExtension on DataError {
 }
 
 extension EmitNewsFetchStateExtension on Cubit<NewsFetchState> {
-  NewsFetchState getNewsFetchState(Either<DataError, List<Article>> either) {
+  NewsFetchState getNewsFetchState(Either<DataError, List<Article>> either, {bool remoteErr = false}) {
     NewsFetchState? stateToEmit;
-    either.fold((dataErr) => stateToEmit = dataErr.toNewsFetchState(), (news) {
-      stateToEmit = NewsFetchState.hasData(articles: news, validity: true, freshness: true);
-    });
+    either.fold((dataErr) => stateToEmit = dataErr.toNewsFetchState(), (news) =>
+      stateToEmit = NewsFetchState.hasData(articles: news, validity: !remoteErr, freshness: true));
 
     return stateToEmit!;
   }

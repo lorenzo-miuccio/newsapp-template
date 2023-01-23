@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/domain/usecase/refresh_news_usecase.dart';
 import 'package:news_app/presentation/blocs/news_fetch/everything_news_bloc.dart';
 import 'package:news_app/presentation/blocs/locale_bloc.dart';
 import 'package:news_app/presentation/blocs/news_fetch/top_news_bloc.dart';
@@ -36,10 +37,14 @@ class _NewsScreenState extends State<NewsScreen> {
   }
 
   void _refreshNews({bool forceRemoteFetch = false}) {
-    context
+
+    final refreshNewsUS = RefreshNewsUS(context.read(), context.read());
+    refreshNewsUS(context.read<LocaleCubit>().state.countryCode!, forceRemoteFetch: forceRemoteFetch);
+
+    /*context
         .read<TopNewsCubit>()
         .getTopNews(context.read<LocaleCubit>().state.countryCode!, forceRemoteFetch: forceRemoteFetch);
-    context.read<EveryThingNewsCubit>().getEverythingNews();
+    context.read<EveryThingNewsCubit>().getEverythingNews();*/
   }
 
   void _searchForArticles() {

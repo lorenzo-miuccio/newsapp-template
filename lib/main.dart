@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:news_app/presentation/blocs/locale_bloc.dart';
-import 'package:news_app/presentation/injection/providers.dart';
+import 'package:news_app/presentation/config/dependecies.dart';
+import 'package:news_app/presentation/config/env.dart';
 import 'package:news_app/presentation/localization/locales_list.dart';
 import 'package:news_app/presentation/screens/common_widgets/drawer/app_drawer.dart';
 import 'package:news_app/presentation/screens/article/article_screen.dart';
@@ -19,7 +20,7 @@ void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  await initGetIt();
+  await DependencyRegistry.registerDependencies(Env.dev());
   runApp(const MyApp());
 }
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LocaleCubit>(
-      create: (_) => getIt(),
+      create: (_) => readDR(),
       child: BlocBuilder<LocaleCubit, Locale>(
         builder: (ctx, selectedLocale) => MaterialApp(
           debugShowCheckedModeBanner: false,

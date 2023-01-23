@@ -18,7 +18,6 @@ extension DataSourcesRegistryExtension on GetIt {
     registerLazySingleton<NewsRemoteDatasource>(
         () => NewsRemoteDatasourceImpl(NewsApi(client, baseUrl: env.baseUrl)));
 
-
     final db = await $FloorNewsDatabase.databaseBuilder('news_database.db').build();
 
     registerLazySingleton<NewsLocalDatasource>(
