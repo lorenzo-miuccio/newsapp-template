@@ -8,8 +8,8 @@ class LocaleCubit extends Cubit<Locale> {
 
   final LanguageRepository _languageRepository;
 
-  LocaleCubit(GetLanguageUsecase getLanguageUsecase, this._languageRepository)
-      : super(locales.firstWhere((locale) => locale.languageCode == getLanguageUsecase(),
+  LocaleCubit(this._languageRepository)
+      : super(locales.firstWhere((locale) => locale.languageCode == _languageRepository.getLanguage(),
             orElse: () => window.locales[0]));
 
   void updateLanguage(Locale newLocale) {
