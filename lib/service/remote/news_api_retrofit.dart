@@ -6,7 +6,7 @@ part 'news_api_retrofit.g.dart';
 
 @RestApi(baseUrl: "https://newsapi.org/v2")
 abstract class NewsApi {
-  factory NewsApi(Dio dio, {String baseUrl}) = _NewsApi;
+factory NewsApi(Dio dio, {String baseUrl}) = _NewsApi;
 
   @GET("/top-headlines")
   Future<NewsSerializable> GETTopHeadLines({

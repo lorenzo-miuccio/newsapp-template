@@ -7,7 +7,9 @@ import 'package:news_app/service/remote/api_extensions.dart';
 import 'package:news_app/service/remote/news_api_retrofit.dart';
 
 class NewsRemoteDatasourceImpl implements NewsRemoteDatasource {
-  final NewsApi _api = NewsApi(Dio()..interceptors.add(_WeatherApiServiceInterceptor()));
+  final NewsApi _api;
+
+  NewsRemoteDatasourceImpl(this._api);
 
   @override
   Future<NewsSerializable> searchNewsByCharacters(String characters, {required String lan}) =>
@@ -28,6 +30,8 @@ class NewsRemoteMockImpl extends NewsRemoteDatasourceImpl {
   final String flutteResp = '{"totalResults":1,"articles":[{"source":{"id":"la-repubblica","name":"La Repubblica"},"author":"repubblicawww@repubblica.it (Redazione Repubblica.it)","title":"Piazza Affari in recupero, torna una matricola ad affacciarsi: è Lottomatica","description":"La società che fa capo ad Apollo starebbe organizzando loperazione per raccogliere 1 miliardo e spuntare una valutazione di 5 miliardi. No comment degli interessati","url":"https://www.repubblica.it/economia/finanza/2023/01/12/news/piazza_affari_prova_il_recupero_forse_torna_una_matricola_ad_affacciarsi_e_lottomatica-383175938/","urlToImage":"https://www.repstatic.it/content/nazionale/img/2023/01/12/103447507-81bbf046-888d-4bfd-9bb4-aa98875a7dc0.jpg","publishedAt":"2023-01-12T09:37:04Z","content":"MILANO -bbe far dimenticare il 2022 che è stato nero non solo per lio, ma a… [+1851 chars]"}]}';
   final String emptyResp = '{"totalResults":0,"articles":[]}';
 
+  NewsRemoteMockImpl(super.api);
+
   @override
   Future<NewsSerializable> searchNewsByCharacters(String characters, {required String lan}) {
     print('search request');
@@ -42,15 +46,6 @@ class NewsRemoteMockImpl extends NewsRemoteDatasourceImpl {
 
 }
 
-class _WeatherApiServiceInterceptor extends Interceptor {
-  @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.receiveTimeout = 8000;
-    options.connectTimeout = 6000;
-
-    return handler.next(options);
-  }
-}
 
 
 

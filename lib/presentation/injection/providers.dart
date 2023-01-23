@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:news_app/data/datasource/news_datasources.dart';
 import 'package:news_app/data/datasource/news_local_datasource.dart';
@@ -20,6 +21,7 @@ import 'package:news_app/presentation/blocs/update_article/update_article_bloc.d
 import 'package:news_app/service/database/article_database.dart';
 import 'package:news_app/service/database/news_local_datasource_impl.dart';
 import 'package:news_app/service/key_value_service_impl.dart';
+import 'package:news_app/service/remote/news_api_retrofit.dart';
 import 'package:news_app/service/remote/news_remote_datasource_impl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,7 +40,14 @@ Future<void> initGetIt() async {
 
 /// With this method you have to register all interfaces and classes of the datasources
 Future<void> _provideDataSource() async {
-  getIt.registerLazySingleton<NewsRemoteDatasource>(() => NewsRemoteDatasourceImpl());
+
+  final client = Dio(
+    BaseOptions(
+      connectTimeout: 10000,
+      receiveTimeout: 10000,
+    ),
+  );
+  getIt.registerLazySingleton<NewsRemoteDatasource>(() => NewsRemoteDatasourceImpl(NewsApi(client)));
   //getIt.registerLazySingleton<NewsRemoteDatasource>(() => NewsRemoteMockImpl());
 
   final db = await $FloorNewsDatabase.databaseBuilder('news_database.db').build();
