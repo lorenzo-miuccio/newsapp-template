@@ -6,7 +6,7 @@ import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
 import 'package:news_app/data/datasource/news_datasources.dart';
 import 'package:news_app/data/datasource/news_local_datasource.dart';
-import 'package:news_app/data/key_value_service.dart';
+import '../../../lib_data/lib/src/key_value_service.dart';
 import 'package:news_app/data/repository/language_repository_impl.dart';
 import 'package:news_app/data/repository/news_repository_impl.dart';
 import 'package:news_app/domain/repository/language_repository.dart';

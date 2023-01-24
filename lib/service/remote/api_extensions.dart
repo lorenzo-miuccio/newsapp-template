@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:news_app/data/model/exceptions.dart';
 
 extension CatchApiRequestErrorsExtension<T> on Future<T> {
   Future<T> catchApiRequestErrors() => catchError((e, s) {

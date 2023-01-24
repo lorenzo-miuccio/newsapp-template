@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:news_app/data/key_value_service.dart';
+import '../../lib_data/lib/src/key_value_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class KeyValueServiceImpl implements KeyValueService {
