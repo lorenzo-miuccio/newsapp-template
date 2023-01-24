@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DataError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Article> articles) expiredArticles,
     required TResult Function(String? message) httpStatus,
     required TResult Function() noConnection,
     required TResult Function(String? message) generic,
@@ -27,7 +26,6 @@ mixin _$DataError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Article> articles)? expiredArticles,
     TResult? Function(String? message)? httpStatus,
     TResult? Function()? noConnection,
     TResult? Function(String? message)? generic,
@@ -36,7 +34,6 @@ mixin _$DataError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Article> articles)? expiredArticles,
     TResult Function(String? message)? httpStatus,
     TResult Function()? noConnection,
     TResult Function(String? message)? generic,
@@ -46,7 +43,6 @@ mixin _$DataError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ExpiredArticlesDataError value) expiredArticles,
     required TResult Function(_HttpStatusDataError value) httpStatus,
     required TResult Function(_NoConnectionDataError value) noConnection,
     required TResult Function(_GenericDataError value) generic,
@@ -55,7 +51,6 @@ mixin _$DataError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ExpiredArticlesDataError value)? expiredArticles,
     TResult? Function(_HttpStatusDataError value)? httpStatus,
     TResult? Function(_NoConnectionDataError value)? noConnection,
     TResult? Function(_GenericDataError value)? generic,
@@ -64,7 +59,6 @@ mixin _$DataError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ExpiredArticlesDataError value)? expiredArticles,
     TResult Function(_HttpStatusDataError value)? httpStatus,
     TResult Function(_NoConnectionDataError value)? noConnection,
     TResult Function(_GenericDataError value)? generic,
@@ -89,169 +83,6 @@ class _$DataErrorCopyWithImpl<$Res, $Val extends DataError>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_ExpiredArticlesDataErrorCopyWith<$Res> {
-  factory _$$_ExpiredArticlesDataErrorCopyWith(
-          _$_ExpiredArticlesDataError value,
-          $Res Function(_$_ExpiredArticlesDataError) then) =
-      __$$_ExpiredArticlesDataErrorCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<Article> articles});
-}
-
-/// @nodoc
-class __$$_ExpiredArticlesDataErrorCopyWithImpl<$Res>
-    extends _$DataErrorCopyWithImpl<$Res, _$_ExpiredArticlesDataError>
-    implements _$$_ExpiredArticlesDataErrorCopyWith<$Res> {
-  __$$_ExpiredArticlesDataErrorCopyWithImpl(_$_ExpiredArticlesDataError _value,
-      $Res Function(_$_ExpiredArticlesDataError) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? articles = null,
-  }) {
-    return _then(_$_ExpiredArticlesDataError(
-      articles: null == articles
-          ? _value._articles
-          : articles // ignore: cast_nullable_to_non_nullable
-              as List<Article>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ExpiredArticlesDataError extends _ExpiredArticlesDataError {
-  const _$_ExpiredArticlesDataError({required final List<Article> articles})
-      : _articles = articles,
-        super._();
-
-  final List<Article> _articles;
-  @override
-  List<Article> get articles {
-    if (_articles is EqualUnmodifiableListView) return _articles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_articles);
-  }
-
-  @override
-  String toString() {
-    return 'DataError.expiredArticles(articles: $articles)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ExpiredArticlesDataError &&
-            const DeepCollectionEquality().equals(other._articles, _articles));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_articles));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ExpiredArticlesDataErrorCopyWith<_$_ExpiredArticlesDataError>
-      get copyWith => __$$_ExpiredArticlesDataErrorCopyWithImpl<
-          _$_ExpiredArticlesDataError>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<Article> articles) expiredArticles,
-    required TResult Function(String? message) httpStatus,
-    required TResult Function() noConnection,
-    required TResult Function(String? message) generic,
-    required TResult Function(String? message) db,
-  }) {
-    return expiredArticles(articles);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Article> articles)? expiredArticles,
-    TResult? Function(String? message)? httpStatus,
-    TResult? Function()? noConnection,
-    TResult? Function(String? message)? generic,
-    TResult? Function(String? message)? db,
-  }) {
-    return expiredArticles?.call(articles);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Article> articles)? expiredArticles,
-    TResult Function(String? message)? httpStatus,
-    TResult Function()? noConnection,
-    TResult Function(String? message)? generic,
-    TResult Function(String? message)? db,
-    required TResult orElse(),
-  }) {
-    if (expiredArticles != null) {
-      return expiredArticles(articles);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ExpiredArticlesDataError value) expiredArticles,
-    required TResult Function(_HttpStatusDataError value) httpStatus,
-    required TResult Function(_NoConnectionDataError value) noConnection,
-    required TResult Function(_GenericDataError value) generic,
-    required TResult Function(_DatabaseError value) db,
-  }) {
-    return expiredArticles(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ExpiredArticlesDataError value)? expiredArticles,
-    TResult? Function(_HttpStatusDataError value)? httpStatus,
-    TResult? Function(_NoConnectionDataError value)? noConnection,
-    TResult? Function(_GenericDataError value)? generic,
-    TResult? Function(_DatabaseError value)? db,
-  }) {
-    return expiredArticles?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ExpiredArticlesDataError value)? expiredArticles,
-    TResult Function(_HttpStatusDataError value)? httpStatus,
-    TResult Function(_NoConnectionDataError value)? noConnection,
-    TResult Function(_GenericDataError value)? generic,
-    TResult Function(_DatabaseError value)? db,
-    required TResult orElse(),
-  }) {
-    if (expiredArticles != null) {
-      return expiredArticles(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ExpiredArticlesDataError extends DataError {
-  const factory _ExpiredArticlesDataError(
-      {required final List<Article> articles}) = _$_ExpiredArticlesDataError;
-  const _ExpiredArticlesDataError._() : super._();
-
-  List<Article> get articles;
-  @JsonKey(ignore: true)
-  _$$_ExpiredArticlesDataErrorCopyWith<_$_ExpiredArticlesDataError>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -319,7 +150,6 @@ class _$_HttpStatusDataError extends _HttpStatusDataError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Article> articles) expiredArticles,
     required TResult Function(String? message) httpStatus,
     required TResult Function() noConnection,
     required TResult Function(String? message) generic,
@@ -331,7 +161,6 @@ class _$_HttpStatusDataError extends _HttpStatusDataError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Article> articles)? expiredArticles,
     TResult? Function(String? message)? httpStatus,
     TResult? Function()? noConnection,
     TResult? Function(String? message)? generic,
@@ -343,7 +172,6 @@ class _$_HttpStatusDataError extends _HttpStatusDataError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Article> articles)? expiredArticles,
     TResult Function(String? message)? httpStatus,
     TResult Function()? noConnection,
     TResult Function(String? message)? generic,
@@ -359,7 +187,6 @@ class _$_HttpStatusDataError extends _HttpStatusDataError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ExpiredArticlesDataError value) expiredArticles,
     required TResult Function(_HttpStatusDataError value) httpStatus,
     required TResult Function(_NoConnectionDataError value) noConnection,
     required TResult Function(_GenericDataError value) generic,
@@ -371,7 +198,6 @@ class _$_HttpStatusDataError extends _HttpStatusDataError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ExpiredArticlesDataError value)? expiredArticles,
     TResult? Function(_HttpStatusDataError value)? httpStatus,
     TResult? Function(_NoConnectionDataError value)? noConnection,
     TResult? Function(_GenericDataError value)? generic,
@@ -383,7 +209,6 @@ class _$_HttpStatusDataError extends _HttpStatusDataError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ExpiredArticlesDataError value)? expiredArticles,
     TResult Function(_HttpStatusDataError value)? httpStatus,
     TResult Function(_NoConnectionDataError value)? noConnection,
     TResult Function(_GenericDataError value)? generic,
@@ -446,7 +271,6 @@ class _$_NoConnectionDataError extends _NoConnectionDataError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Article> articles) expiredArticles,
     required TResult Function(String? message) httpStatus,
     required TResult Function() noConnection,
     required TResult Function(String? message) generic,
@@ -458,7 +282,6 @@ class _$_NoConnectionDataError extends _NoConnectionDataError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Article> articles)? expiredArticles,
     TResult? Function(String? message)? httpStatus,
     TResult? Function()? noConnection,
     TResult? Function(String? message)? generic,
@@ -470,7 +293,6 @@ class _$_NoConnectionDataError extends _NoConnectionDataError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Article> articles)? expiredArticles,
     TResult Function(String? message)? httpStatus,
     TResult Function()? noConnection,
     TResult Function(String? message)? generic,
@@ -486,7 +308,6 @@ class _$_NoConnectionDataError extends _NoConnectionDataError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ExpiredArticlesDataError value) expiredArticles,
     required TResult Function(_HttpStatusDataError value) httpStatus,
     required TResult Function(_NoConnectionDataError value) noConnection,
     required TResult Function(_GenericDataError value) generic,
@@ -498,7 +319,6 @@ class _$_NoConnectionDataError extends _NoConnectionDataError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ExpiredArticlesDataError value)? expiredArticles,
     TResult? Function(_HttpStatusDataError value)? httpStatus,
     TResult? Function(_NoConnectionDataError value)? noConnection,
     TResult? Function(_GenericDataError value)? generic,
@@ -510,7 +330,6 @@ class _$_NoConnectionDataError extends _NoConnectionDataError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ExpiredArticlesDataError value)? expiredArticles,
     TResult Function(_HttpStatusDataError value)? httpStatus,
     TResult Function(_NoConnectionDataError value)? noConnection,
     TResult Function(_GenericDataError value)? generic,
@@ -593,7 +412,6 @@ class _$_GenericDataError extends _GenericDataError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Article> articles) expiredArticles,
     required TResult Function(String? message) httpStatus,
     required TResult Function() noConnection,
     required TResult Function(String? message) generic,
@@ -605,7 +423,6 @@ class _$_GenericDataError extends _GenericDataError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Article> articles)? expiredArticles,
     TResult? Function(String? message)? httpStatus,
     TResult? Function()? noConnection,
     TResult? Function(String? message)? generic,
@@ -617,7 +434,6 @@ class _$_GenericDataError extends _GenericDataError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Article> articles)? expiredArticles,
     TResult Function(String? message)? httpStatus,
     TResult Function()? noConnection,
     TResult Function(String? message)? generic,
@@ -633,7 +449,6 @@ class _$_GenericDataError extends _GenericDataError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ExpiredArticlesDataError value) expiredArticles,
     required TResult Function(_HttpStatusDataError value) httpStatus,
     required TResult Function(_NoConnectionDataError value) noConnection,
     required TResult Function(_GenericDataError value) generic,
@@ -645,7 +460,6 @@ class _$_GenericDataError extends _GenericDataError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ExpiredArticlesDataError value)? expiredArticles,
     TResult? Function(_HttpStatusDataError value)? httpStatus,
     TResult? Function(_NoConnectionDataError value)? noConnection,
     TResult? Function(_GenericDataError value)? generic,
@@ -657,7 +471,6 @@ class _$_GenericDataError extends _GenericDataError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ExpiredArticlesDataError value)? expiredArticles,
     TResult Function(_HttpStatusDataError value)? httpStatus,
     TResult Function(_NoConnectionDataError value)? noConnection,
     TResult Function(_GenericDataError value)? generic,
@@ -746,7 +559,6 @@ class _$_DatabaseError extends _DatabaseError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Article> articles) expiredArticles,
     required TResult Function(String? message) httpStatus,
     required TResult Function() noConnection,
     required TResult Function(String? message) generic,
@@ -758,7 +570,6 @@ class _$_DatabaseError extends _DatabaseError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Article> articles)? expiredArticles,
     TResult? Function(String? message)? httpStatus,
     TResult? Function()? noConnection,
     TResult? Function(String? message)? generic,
@@ -770,7 +581,6 @@ class _$_DatabaseError extends _DatabaseError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Article> articles)? expiredArticles,
     TResult Function(String? message)? httpStatus,
     TResult Function()? noConnection,
     TResult Function(String? message)? generic,
@@ -786,7 +596,6 @@ class _$_DatabaseError extends _DatabaseError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ExpiredArticlesDataError value) expiredArticles,
     required TResult Function(_HttpStatusDataError value) httpStatus,
     required TResult Function(_NoConnectionDataError value) noConnection,
     required TResult Function(_GenericDataError value) generic,
@@ -798,7 +607,6 @@ class _$_DatabaseError extends _DatabaseError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ExpiredArticlesDataError value)? expiredArticles,
     TResult? Function(_HttpStatusDataError value)? httpStatus,
     TResult? Function(_NoConnectionDataError value)? noConnection,
     TResult? Function(_GenericDataError value)? generic,
@@ -810,7 +618,6 @@ class _$_DatabaseError extends _DatabaseError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ExpiredArticlesDataError value)? expiredArticles,
     TResult Function(_HttpStatusDataError value)? httpStatus,
     TResult Function(_NoConnectionDataError value)? noConnection,
     TResult Function(_GenericDataError value)? generic,

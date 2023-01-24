@@ -1,4 +1,3 @@
-import 'package:domain/src/entity/article.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'data_error.freezed.dart';
@@ -6,8 +5,6 @@ part 'data_error.freezed.dart';
 @freezed
 class DataError with _$DataError {
   const DataError._();
-
-  const factory DataError.expiredArticles({required List<Article> articles}) = _ExpiredArticlesDataError;
 
   const factory DataError.httpStatus({String? message}) = _HttpStatusDataError;
 

@@ -119,8 +119,7 @@ class _$_Settings implements _Settings {
 }
 
 abstract class _Settings implements Settings {
-  const factory _Settings({required final Language locale}) =
-      _$_Settings;
+  const factory _Settings({required final Language locale}) = _$_Settings;
 
   @override
   Language get locale;

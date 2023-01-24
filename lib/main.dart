@@ -12,4 +12,3 @@ void main() async {
   await DependencyRegistry.registerDependencies(Env.dev());
   runApp(const App());
 }
-
