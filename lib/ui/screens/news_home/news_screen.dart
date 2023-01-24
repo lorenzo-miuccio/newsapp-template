@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:news_app/config/localization/locale_bloc.dart';
 import 'package:news_app/ui/screens/common_widgets/drawer/app_drawer.dart';
 import 'package:news_app/ui/screens/common_widgets/drawer/drawer_icon_appbar.dart';
 import 'package:news_app/ui/screens/news_home/widgets/everything_section.dart';
 import 'package:news_app/ui/screens/news_home/widgets/news_header.dart';
 import 'package:news_app/ui/screens/news_home/widgets/top_headlines_section.dart';
+import 'package:news_app/utils/language_to_locale.dart';
 
 
 class NewsScreen extends StatefulWidget {
@@ -39,18 +39,13 @@ class _NewsScreenState extends State<NewsScreen> {
   void _refreshNews({bool forceRemoteFetch = false}) {
 
     final refreshNewsUS = RefreshNewsUS(context.read(), context.read());
-    refreshNewsUS(context.read<LocaleCubit>().state.countryCode!, forceRemoteFetch: forceRemoteFetch);
-
-    /*context
-        .read<TopNewsCubit>()
-        .getTopNews(context.read<LocaleCubit>().state.countryCode!, forceRemoteFetch: forceRemoteFetch);
-    context.read<EveryThingNewsCubit>().getEverythingNews();*/
+    refreshNewsUS(context.read<LocaleCubit>().state.locale.getCountryId(), forceRemoteFetch: forceRemoteFetch);
   }
 
   void _searchForArticles() {
     context
         .read<EveryThingNewsCubit>()
-        .searchNews(characters: _searchBarController.text, lan: context.read<LocaleCubit>().state.languageCode);
+        .searchNews(characters: _searchBarController.text, lan: context.read<LocaleCubit>().state.locale.name);
   }
 
   void _checkTextInput(String input) {
@@ -72,7 +67,7 @@ class _NewsScreenState extends State<NewsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LocaleCubit, Locale>(
+    return BlocListener<LocaleCubit, Settings>(
       listener: (ctx, localeState) => _refreshNews(forceRemoteFetch: true),
       child: Scaffold(
         appBar: AppBar(

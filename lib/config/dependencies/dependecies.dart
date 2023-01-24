@@ -5,7 +5,6 @@ import 'package:domain/domain.dart';
 import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
 import 'package:news_app/config/env.dart';
-import 'package:news_app/config/localization/locale_bloc.dart';
 import 'package:service/service.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';

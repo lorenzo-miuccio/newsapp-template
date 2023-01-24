@@ -12,5 +12,8 @@ export 'src/repository/news_repository.dart';
 export 'src/usecase/refresh_news_usecase.dart';
 export 'src/entity/either.dart';
 export 'src/error/data_error.dart';
+export 'src/blocs/settings/locale_bloc.dart';
+export 'src/blocs/settings/settings.dart';
+
 
 

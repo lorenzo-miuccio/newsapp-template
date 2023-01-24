@@ -1,7 +1,7 @@
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:news_app/config/localization/locale_bloc.dart';
 import 'package:news_app/ui/screens/settings/change_language_dialog.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -26,9 +26,9 @@ class SettingsScreen extends StatelessWidget {
             ),
             child: Text(AppLocalizations.of(context)!.selectLanguage, style: const TextStyle(fontSize: 14)),
           ),
-          BlocBuilder<LocaleCubit, Locale>(
-            builder: (ctx, localeState) => ListTile(
-              title: Text(localeState.getLanguage(context), style: const TextStyle(fontSize: 16)),
+          BlocBuilder<LocaleCubit, Settings>(
+            builder: (ctx, settingsState) => ListTile(
+              title: Text(settingsState.locale.getLanguage(context), style: const TextStyle(fontSize: 16)),
               tileColor: Colors.grey.withOpacity(0.2),
               trailing: const Icon(Icons.navigate_next),
               onTap: () => showDialog(context: context, builder: (ctx) => const ChangeLanguageDialog())
@@ -41,7 +41,7 @@ class SettingsScreen extends StatelessWidget {
   }
 }
 
-extension RetrieveLanguage on Locale {
+extension RetrieveLanguage on Language {
   String getLanguage(BuildContext context) =>
-      languageCode == 'it' ? AppLocalizations.of(context)!.it : AppLocalizations.of(context)!.en;
+      name == 'it' ? AppLocalizations.of(context)!.it : AppLocalizations.of(context)!.en;
 }

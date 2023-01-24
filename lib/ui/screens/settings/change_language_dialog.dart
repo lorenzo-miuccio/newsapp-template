@@ -1,9 +1,8 @@
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:news_app/config/localization/locale_bloc.dart';
-import 'package:news_app/config/localization/locales_list.dart';
 import 'package:news_app/ui/screens/settings/settings_screen.dart';
 
 class ChangeLanguageDialog extends StatefulWidget {
@@ -14,22 +13,24 @@ class ChangeLanguageDialog extends StatefulWidget {
 }
 
 class _ChangeLanguageDialogState extends State<ChangeLanguageDialog> {
-  late Locale _currentLocale;
+  late Language _currentLocale;
   bool _enableConfirmButton = false;
 
   @override
   void initState() {
     super.initState();
-    _currentLocale = context.read<LocaleCubit>().state;
+    _currentLocale = context.read<LocaleCubit>().state.locale;
   }
 
   @override
   Widget build(BuildContext context) {
+
+    var i = Language.values;
     return Dialog(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          ...locales.map(
+          ...Language.values.map(
             (locale) => RadioListTile(
               title: Text(
                 locale.getLanguage(context),
@@ -65,6 +66,5 @@ class _ChangeLanguageDialogState extends State<ChangeLanguageDialog> {
         ],
       ),
     );
-    ;
   }
 }
