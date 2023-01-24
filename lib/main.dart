@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:news_app/presentation/blocs/locale_bloc.dart';
-import 'package:news_app/presentation/config/dependecies.dart';
-import 'package:news_app/presentation/config/env.dart';
-import 'package:news_app/presentation/localization/locales_list.dart';
-import 'package:news_app/presentation/screens/common_widgets/drawer/app_drawer.dart';
-import 'package:news_app/presentation/screens/article/article_screen.dart';
-import 'package:news_app/presentation/screens/article/article_screen_connector.dart';
-import 'package:news_app/presentation/screens/news_home/news_screen_connector.dart';
-import 'package:news_app/presentation/screens/saved_shared/saved_shared_connector.dart';
-import 'package:news_app/presentation/screens/saved_shared/saved_shared_screen.dart';
-import 'package:news_app/presentation/screens/settings/settings_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:news_app/presentation/theme.dart';
+import 'package:news_app/config/dependencies/dependecies.dart';
+import 'package:news_app/config/env.dart';
+import 'package:news_app/config/localization/locale_bloc.dart';
+import 'package:news_app/config/localization/locales_list.dart';
+import 'package:news_app/ui/screens/article/article_screen.dart';
+import 'package:news_app/ui/screens/article/article_screen_connector.dart';
+import 'package:news_app/ui/screens/common_widgets/drawer/app_drawer.dart';
+import 'package:news_app/ui/screens/news_home/news_screen_connector.dart';
+import 'package:news_app/ui/screens/saved_shared/saved_shared_connector.dart';
+import 'package:news_app/ui/screens/saved_shared/saved_shared_screen.dart';
+import 'package:news_app/ui/screens/settings/settings_screen.dart';
+
+import 'config/theme.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
