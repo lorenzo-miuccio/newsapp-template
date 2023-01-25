@@ -1,5 +1,3 @@
-
-
 import 'package:data/src/model/article_floor.dart';
 import 'package:data/src/serializable/news_serializable.dart';
 import 'package:domain/domain.dart';
@@ -9,7 +7,12 @@ extension NewsMappingExtension on NewsSerializable {
         final s = element.content.split('[');
         final String lastWord = s.last;
         int readTimeInMin = 0;
-        readTimeInMin = (int.parse(lastWord.substring(1, lastWord.indexOf(' '))) / 500).round();
+
+        try {
+          readTimeInMin = (int.parse(lastWord.substring(1, lastWord.indexOf(' '))) / 500).round();
+        } catch (e) {
+          print('Impossible to calculate read time');
+        }
 
         return Article(
           title: element.title,

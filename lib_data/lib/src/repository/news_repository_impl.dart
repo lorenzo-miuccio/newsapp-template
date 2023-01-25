@@ -6,7 +6,6 @@ import 'package:data/src/model/exceptions.dart';
 import 'package:data/src/serializable/news_serializable.dart';
 import 'package:domain/domain.dart';
 
-
 class NewsRepositoryImpl implements NewsRepository {
   final NewsRemoteDatasource _newsRemoteDatasource;
   final NewsLocalDatasource _newsLocalDatasource;
@@ -102,7 +101,7 @@ extension _MapDatasourceResultsToEither on NewsRepositoryImpl {
           {bool isTop = false}) =>
       remoteNews
           .then<Either<DataError, List<Article>>>((value) => Right(value.toArticlesList()))
-          .catchError((Object e) => Left<DataError, List<Article>>(e.toDataError()));
+          .catchError((Object e, s) => Left<DataError, List<Article>>(e.toDataError()));
 
   Future<Either<DataError, List<Article>>> mapLocalFetchToEither(Future<List<ArticleDb>> localNews) => localNews
       .then<Either<DataError, List<Article>>>((value) => Right(value.map((e) => e.toArticleEntity()).toList()))
