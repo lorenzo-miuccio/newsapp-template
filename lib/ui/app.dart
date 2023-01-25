@@ -20,9 +20,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<LocaleCubit>(
+    return BlocProvider<SettingsCubit>(
       create: (_) => readDR(),
-      child: BlocBuilder<LocaleCubit, Settings>(
+      child: BlocBuilder<SettingsCubit, Settings>(
         builder: (ctx, settingState) => MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'News App',

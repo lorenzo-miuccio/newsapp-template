@@ -10,6 +10,16 @@ abstract class Either<L, R> {
   void fold(void Function(L) l, void Function(R) r) => isLeft ? l(castLeft().value) : r(castRight().value);
 
   Either<L, T> mapBoth<T>(Either<L, T> Function(L) l, Either<L, T> Function(R) r) => isLeft ? l(castLeft().value) : r(castRight().value);
+
+  /// Constructs a new [Either] from a function that might throw resulting in a [Future]
+  static Future<Either<L, R>> tryCatchAsync<L, R, Err extends Object>(L Function(Err err) onError, Future<R> Function() fnR) async {
+    try {
+      final result = await fnR();
+      return Right(result);
+    } on Err catch (e) {
+      return Left(onError(e));
+    }
+  }
 }
 
 class Left<L, R> extends Either<L, R> {

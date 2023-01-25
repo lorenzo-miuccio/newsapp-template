@@ -19,7 +19,7 @@ class _ChangeLanguageDialogState extends State<ChangeLanguageDialog> {
   @override
   void initState() {
     super.initState();
-    _currentLocale = context.read<LocaleCubit>().state.locale;
+    _currentLocale = context.read<SettingsCubit>().state.locale;
   }
 
   @override

@@ -39,13 +39,13 @@ class _NewsScreenState extends State<NewsScreen> {
   void _refreshNews({bool forceRemoteFetch = false}) {
 
     final refreshNewsUS = RefreshNewsUS(context.read(), context.read());
-    refreshNewsUS(context.read<LocaleCubit>().state.locale.getCountryId(), forceRemoteFetch: forceRemoteFetch);
+    refreshNewsUS(context.read<SettingsCubit>().state.locale.getCountryId(), forceRemoteFetch: forceRemoteFetch);
   }
 
   void _searchForArticles() {
     context
         .read<EveryThingNewsCubit>()
-        .searchNews(characters: _searchBarController.text, lan: context.read<LocaleCubit>().state.locale.name);
+        .searchNews(characters: _searchBarController.text, lan: context.read<SettingsCubit>().state.locale.name);
   }
 
   void _checkTextInput(String input) {
@@ -67,7 +67,7 @@ class _NewsScreenState extends State<NewsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LocaleCubit, Settings>(
+    return BlocListener<SettingsCubit, Settings>(
       listener: (ctx, localeState) => _refreshNews(forceRemoteFetch: true),
       child: Scaffold(
         appBar: AppBar(

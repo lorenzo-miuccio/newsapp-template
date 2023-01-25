@@ -26,13 +26,13 @@ class SettingsScreen extends StatelessWidget {
             ),
             child: Text(AppLocalizations.of(context)!.selectLanguage, style: const TextStyle(fontSize: 14)),
           ),
-          BlocBuilder<LocaleCubit, Settings>(
+          BlocBuilder<SettingsCubit, Settings>(
             builder: (ctx, settingsState) => ListTile(
               title: Text(settingsState.locale.getLanguage(context), style: const TextStyle(fontSize: 16)),
               tileColor: Colors.grey.withOpacity(0.2),
               trailing: const Icon(Icons.navigate_next),
               onTap: () => showDialog(context: context, builder: (ctx) => const ChangeLanguageDialog())
-                  .then((value) => value != null ? context.read<LocaleCubit>().updateLanguage(value!) : null),
+                  .then((value) => value != null ? context.read<SettingsCubit>().updateLanguage(value!) : null),
             ),
           )
         ],

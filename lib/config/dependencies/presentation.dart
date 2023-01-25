@@ -7,6 +7,6 @@ extension PresentationDependenciesRegistryExtension on GetIt {
     registerFactory(() => TopNewsCubit(get()));
     registerFactory(() => UpdateArticleCubit(get()));
     registerFactory(() => SavedSharedNewsCubit(get()));
-    registerFactory(() => LocaleCubit(get()));
+    registerFactory(() => SettingsCubit(get()));
   }
 }

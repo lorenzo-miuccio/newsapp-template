@@ -2,11 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:domain/domain.dart';
 
-class LocaleCubit extends Cubit<Settings> {
+class SettingsCubit extends Cubit<Settings> {
 
   final LanguageRepository _languageRepository;
 
-  LocaleCubit(this._languageRepository)
+  SettingsCubit(this._languageRepository)
       : super(_mapper(_languageRepository.getLanguage()));
 
   void updateLanguage(Language newLocale) {
