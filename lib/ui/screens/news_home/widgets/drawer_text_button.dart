@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class DrawerTextButton extends StatelessWidget {
   const DrawerTextButton({
@@ -29,7 +30,12 @@ class DrawerTextButton extends StatelessWidget {
         child: ButtonTheme(
           buttonColor: Theme.of(context).primaryColor,
           child: TextButton.icon(
-            onPressed: isSelected ? null : () => Navigator.of(context).pushReplacementNamed(navigationRoute),
+            onPressed: isSelected
+                ? null
+                : () {
+                    context.pop();
+                    context.push(navigationRoute);
+                  },
             icon: Icon(icon),
             label: SizedBox(
               width: double.infinity,

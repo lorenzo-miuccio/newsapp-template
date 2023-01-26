@@ -7,7 +7,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:newsapp_template/ui/screens/common_widgets/error_widgets/generic_error.dart';
 import 'package:newsapp_template/ui/screens/common_widgets/loading_widget.dart';
 import 'package:newsapp_template/ui/screens/news_home/widgets/headline_item.dart';
-import 'package:newsapp_template/ui/screens/saved_shared/empty_section_widget.dart';
+import 'package:newsapp_template/ui/screens/saved_shared/widgets/empty_section_widget.dart';
 import 'package:newsapp_template/utils/remove_splash_screen.dart';
 
 

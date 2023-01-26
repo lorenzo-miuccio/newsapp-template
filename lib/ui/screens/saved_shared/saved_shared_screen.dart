@@ -4,16 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:newsapp_template/ui/screens/common_widgets/drawer/app_drawer.dart';
 import 'package:newsapp_template/ui/screens/common_widgets/drawer/drawer_icon_appbar.dart';
-import 'package:newsapp_template/ui/screens/saved_shared/saved_shared_news_list.dart';
+import 'package:newsapp_template/ui/screens/saved_shared/widgets/saved_shared_news_list.dart';
 
 
 class SavedSharedScreen extends StatefulWidget {
   final AppScreen screen;
 
   const SavedSharedScreen(this.screen, {Key? key}) : super(key: key);
-
-  static const String savedRouteName = '/saved';
-  static const String sharedRouteName = '/shared';
 
   @override
   State<SavedSharedScreen> createState() => _SavedSharedScreenState();

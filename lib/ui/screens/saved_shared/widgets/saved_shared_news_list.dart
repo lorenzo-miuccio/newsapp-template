@@ -8,7 +8,7 @@ import 'package:newsapp_template/ui/screens/common_widgets/drawer/app_drawer.dar
 import 'package:newsapp_template/ui/screens/common_widgets/error_widgets/generic_error.dart';
 import 'package:newsapp_template/ui/screens/common_widgets/loading_widget.dart';
 import 'package:newsapp_template/ui/screens/news_home/widgets/article_item.dart';
-import 'package:newsapp_template/ui/screens/saved_shared/empty_section_widget.dart';
+import 'package:newsapp_template/ui/screens/saved_shared/widgets/empty_section_widget.dart';
 import 'package:newsapp_template/utils/update_snackbar.dart';
 
 class SavedSharedNewsList extends StatelessWidget {

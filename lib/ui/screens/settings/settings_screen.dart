@@ -7,8 +7,6 @@ import 'package:newsapp_template/ui/screens/settings/change_language_dialog.dart
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
-  static const String routeName = '/settings';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

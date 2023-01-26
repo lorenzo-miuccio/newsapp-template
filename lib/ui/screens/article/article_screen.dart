@@ -12,21 +12,20 @@ import 'package:newsapp_template/utils/update_snackbar.dart';
 
 
 class ArticleScreen extends StatefulWidget {
-  const ArticleScreen({Key? key}) : super(key: key);
-
-  static const String routeName = '/article';
+  final Article article;
+  const ArticleScreen(this.article, {Key? key}) : super(key: key);
 
   @override
   State<ArticleScreen> createState() => _ArticleScreenState();
 }
 
 class _ArticleScreenState extends State<ArticleScreen> {
-  late Article _article;
+  late Article _article = widget.article;
   bool _visibilityFeature = false;
 
   @override
   void didChangeDependencies() {
-    _article = ModalRoute.of(context)!.settings.arguments as Article;
+    //_article = ModalRoute.of(context)!.settings.arguments as Article;
     super.didChangeDependencies();
   }
 

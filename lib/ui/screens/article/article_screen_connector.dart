@@ -5,15 +5,15 @@ import 'package:newsapp_template/config/dependencies/dependecies.dart';
 import 'package:newsapp_template/ui/screens/article/article_screen.dart';
 
 class ArticleScreenConnector extends StatelessWidget {
-  const ArticleScreenConnector({Key? key}) : super(key: key);
+  final Article article;
+
+  const ArticleScreenConnector({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-
     return BlocProvider<UpdateArticleCubit>(
       create: (_) => readDR(),
-      child: const ArticleScreen(),
+      child: ArticleScreen(article),
     );
   }
 }

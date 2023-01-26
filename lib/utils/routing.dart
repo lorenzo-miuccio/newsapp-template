@@ -1,35 +1,36 @@
-import 'package:bloc_template/ui/pages/anime/anime_detail_page.dart';
-import 'package:bloc_template/ui/pages/anime/anime_page.dart';
-import 'package:bloc_template/ui/pages/anime/anime_page_connector.dart';
-import 'package:bloc_template/ui/pages/home/home_page.dart';
-import 'package:bloc_template/ui/pages/home/home_page_connector.dart';
-import 'package:bloc_template/ui/pages/splash/splash_page.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:newsapp_template/ui/screens/article/article_screen_connector.dart';
+import 'package:newsapp_template/ui/screens/common_widgets/drawer/app_drawer.dart';
+import 'package:newsapp_template/ui/screens/news_home/news_screen_connector.dart';
+import 'package:newsapp_template/ui/screens/saved_shared/saved_shared_connector.dart';
+import 'package:newsapp_template/ui/screens/settings/settings_screen.dart';
 
 class AppRoutes {
   AppRoutes._();
 
-  static const String splash = '/splash';
-  static const String home = '/home';
-  static const String anime = '/anime';
+  static const String home = '/news';
+  static const String settings = '/settings';
+  static const String saved = '/saved';
+  static const String shared = '/shared';
 
-  static String animeDetail(String id) => '$anime/$id';
+  static String articleDetail(String id) => '$home/$id';
 }
 
 /// Router configuration
 /// Use method [_goRoute] to add a new Route
 final GoRouter routerConfig = GoRouter(
-  initialLocation: AppRoutes.splash,
+  initialLocation: AppRoutes.home,
   routes: <GoRoute>[
-    _goRoute(AppRoutes.splash, (_, __) => const SplashPage()),
 
     /// Not using const otherwise the page isn't rebuilt on locale changes
-    _goRoute(AppRoutes.home, (_, __) => HomePageConnector(HomePage())),
-    _goRoute(AppRoutes.anime, (_, __) => const AnimePageConnector(AnimePage()), routes: [
-      _goRoute(':id', (_, state) => AnimeDetailPage(anime: state.animeExtra)),
+    _goRoute(AppRoutes.home, (_, __) => const NewsScreenConnector(), routes: [
+      _goRoute(':id', (_, state) => ArticleScreenConnector(article: state.articleExtra))
     ]),
+    _goRoute(AppRoutes.settings, (_, __) => const SettingsScreen()),
+    _goRoute(AppRoutes.saved, (_, __) => const SavedSharedScreenConnector(AppScreen.saved)),
+    _goRoute(AppRoutes.shared, (_, __) => const SavedSharedScreenConnector(AppScreen.shared)),
   ],
 );
 
@@ -43,5 +44,5 @@ typedef _GoRouterWidgetBuilder = Widget Function(
 );
 
 extension _GoRouterStateExtension on GoRouterState {
-  Anime get animeExtra => extra as Anime;
+  Article get articleExtra => extra as Article;
 }

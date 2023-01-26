@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:newsapp_template/ui/screens/news_home/widgets/drawer_text_button.dart';
 import 'package:newsapp_template/ui/screens/saved_shared/saved_shared_screen.dart';
 import 'package:newsapp_template/ui/screens/settings/settings_screen.dart';
+import 'package:newsapp_template/utils/routing.dart';
 
 enum AppScreen {
   home,
@@ -28,26 +30,26 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.slideshow),
               trailing: IconButton(
                 icon: const Icon(Icons.tune),
-                onPressed: () => Navigator.of(context).pushNamed(SettingsScreen.routeName),
+                onPressed: () => context.push(AppRoutes.settings),
               ),
               title: const Text('newsapp'),
             ),
             DrawerTextButton(
               icon: Icons.home_filled,
               label: 'Home',
-              navigationRoute: '/',
+              navigationRoute: AppRoutes.home,
               isSelected: selectedScreen == AppScreen.home,
             ),
             DrawerTextButton(
               icon: Icons.bookmark_border,
               label: AppLocalizations.of(context)!.saved,
-              navigationRoute: SavedSharedScreen.savedRouteName,
+              navigationRoute: AppRoutes.saved,
               isSelected: selectedScreen == AppScreen.saved,
             ),
             DrawerTextButton(
               icon: Icons.share,
               label: AppLocalizations.of(context)!.shared,
-              navigationRoute: SavedSharedScreen.sharedRouteName,
+              navigationRoute: AppRoutes.shared,
               isSelected: selectedScreen == AppScreen.shared,
             ),
           ],
