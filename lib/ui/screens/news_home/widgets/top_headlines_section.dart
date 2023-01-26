@@ -4,11 +4,11 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:news_app/ui/screens/common_widgets/error_widgets/generic_error.dart';
-import 'package:news_app/ui/screens/common_widgets/loading_widget.dart';
-import 'package:news_app/ui/screens/news_home/widgets/headline_item.dart';
-import 'package:news_app/ui/screens/saved_shared/empty_section_widget.dart';
-import 'package:news_app/utils/remove_splash_screen.dart';
+import 'package:newsapp_template/ui/screens/common_widgets/error_widgets/generic_error.dart';
+import 'package:newsapp_template/ui/screens/common_widgets/loading_widget.dart';
+import 'package:newsapp_template/ui/screens/news_home/widgets/headline_item.dart';
+import 'package:newsapp_template/ui/screens/saved_shared/empty_section_widget.dart';
+import 'package:newsapp_template/utils/remove_splash_screen.dart';
 
 
 class TopHeadlinesSection extends StatefulWidget {

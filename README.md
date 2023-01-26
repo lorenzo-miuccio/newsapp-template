@@ -1,6 +1,6 @@
-# news_app
+# newsapp_template
 
-Flutter Assessment 4
+Flutter Assessment 4b
 
 ## Getting Started
 

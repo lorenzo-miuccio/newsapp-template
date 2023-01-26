@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:news_app/config/dependencies/dependecies.dart';
-import 'package:news_app/config/env.dart';
-import 'package:news_app/ui/app.dart';
+import 'package:newsapp_template/config/dependencies/dependecies.dart';
+import 'package:newsapp_template/config/env.dart';
+import 'package:newsapp_template/ui/app.dart';
 
 
 void main() async {

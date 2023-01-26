@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:news_app/ui/screens/common_widgets/drawer/app_drawer.dart';
-import 'package:news_app/ui/screens/common_widgets/error_widgets/generic_error.dart';
-import 'package:news_app/ui/screens/common_widgets/loading_widget.dart';
-import 'package:news_app/ui/screens/news_home/widgets/article_item.dart';
-import 'package:news_app/ui/screens/saved_shared/empty_section_widget.dart';
-import 'package:news_app/utils/update_snackbar.dart';
+import 'package:newsapp_template/ui/screens/common_widgets/drawer/app_drawer.dart';
+import 'package:newsapp_template/ui/screens/common_widgets/error_widgets/generic_error.dart';
+import 'package:newsapp_template/ui/screens/common_widgets/loading_widget.dart';
+import 'package:newsapp_template/ui/screens/news_home/widgets/article_item.dart';
+import 'package:newsapp_template/ui/screens/saved_shared/empty_section_widget.dart';
+import 'package:newsapp_template/utils/update_snackbar.dart';
 
 class SavedSharedNewsList extends StatelessWidget {
   final void Function() refresh;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/ui/screens/common_widgets/article_image_widget.dart';
+import 'package:newsapp_template/ui/screens/common_widgets/article_image_widget.dart';
 
 class Thumbnail extends StatelessWidget {
   final String? imageUrl;

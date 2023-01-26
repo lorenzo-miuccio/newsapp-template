@@ -1,7 +1,7 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/ui/screens/article/article_screen.dart';
-import 'package:news_app/ui/screens/common_widgets/article_image_widget.dart';
+import 'package:newsapp_template/ui/screens/article/article_screen.dart';
+import 'package:newsapp_template/ui/screens/common_widgets/article_image_widget.dart';
 
 
 class ArticleItem extends StatelessWidget {
