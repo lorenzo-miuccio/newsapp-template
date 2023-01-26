@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:newsapp_template/ui/screens/news_home/widgets/drawer_text_button.dart';
-import 'package:newsapp_template/ui/screens/saved_shared/saved_shared_screen.dart';
-import 'package:newsapp_template/ui/screens/settings/settings_screen.dart';
+import 'package:newsapp_template/ui/screens/common_widgets/drawer/drawer_text_button.dart';
 import 'package:newsapp_template/utils/routing.dart';
 
 enum AppScreen {

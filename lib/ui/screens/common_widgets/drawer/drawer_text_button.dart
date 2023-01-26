@@ -30,12 +30,7 @@ class DrawerTextButton extends StatelessWidget {
         child: ButtonTheme(
           buttonColor: Theme.of(context).primaryColor,
           child: TextButton.icon(
-            onPressed: isSelected
-                ? null
-                : () {
-                    context.pop();
-                    context.push(navigationRoute);
-                  },
+            onPressed: isSelected ? null : () => context.go(navigationRoute),
             icon: Icon(icon),
             label: SizedBox(
               width: double.infinity,
