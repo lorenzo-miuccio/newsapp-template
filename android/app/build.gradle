@@ -65,9 +65,11 @@ android {
     flavorDimensions "env"
     productFlavors {
         prod {
+            resValue "string", "app_name", "NewsApp"
             dimension "env"
         }
         dev {
+            resValue "string", "app_name", "NewsApp-dev"
             dimension "env"
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
