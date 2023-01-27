@@ -23,8 +23,8 @@ class HeadlineItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.push(AppRoutes.articleDetail(article.title), extra: article);
         GoRouter.of(context).addListener(() => _watchRouteChange(context));
+        context.push(AppRoutes.articleDetail(article.title), extra: article);
       },
       child: Card(
         child: Padding(
