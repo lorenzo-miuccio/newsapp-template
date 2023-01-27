@@ -4,11 +4,10 @@ import 'package:newsapp_template/config/dependencies/dependecies.dart';
 import 'package:newsapp_template/config/env.dart';
 import 'package:newsapp_template/ui/app.dart';
 
-
-void main() async {
+Future<void> run(Env env) async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  await DependencyRegistry.registerDependencies(Env.dev());
+  await DependencyRegistry.registerDependencies(env);
   runApp(const App());
 }
