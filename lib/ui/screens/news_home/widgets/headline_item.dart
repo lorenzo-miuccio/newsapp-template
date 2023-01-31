@@ -1,8 +1,8 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapp_template/ui/screens/article/article_screen.dart';
-import 'package:newsapp_template/ui/screens/common_widgets/publish_date_readtime_widget.dart';
-import 'package:newsapp_template/ui/screens/common_widgets/thumbnail.dart';
+import 'package:newsapp/ui/screens/article/article_screen.dart';
+import 'package:newsapp/ui/screens/common_widgets/publish_date_readtime_widget.dart';
+import 'package:newsapp/ui/screens/common_widgets/thumbnail.dart';
 
 
 class HeadlineItem extends StatelessWidget {

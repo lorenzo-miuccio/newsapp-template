@@ -1,9 +1,9 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsapp_template/config/dependencies/dependecies.dart';
-import 'package:newsapp_template/ui/screens/common_widgets/drawer/app_drawer.dart';
-import 'package:newsapp_template/ui/screens/saved_shared/saved_shared_screen.dart';
+import 'package:newsapp/config/dependencies/dependecies.dart';
+import 'package:newsapp/ui/screens/common_widgets/drawer/app_drawer.dart';
+import 'package:newsapp/ui/screens/saved_shared/saved_shared_screen.dart';
 
 
 class SavedSharedScreenConnector extends StatelessWidget {

@@ -1,4 +1,4 @@
-# newsapp_template
+# newsapp
 
 Flutter Assessment 4b
 

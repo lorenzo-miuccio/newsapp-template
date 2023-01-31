@@ -1,10 +1,10 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsapp_template/ui/screens/common_widgets/error_widgets/generic_error.dart';
-import 'package:newsapp_template/ui/screens/common_widgets/loading_widget.dart';
-import 'package:newsapp_template/ui/screens/news_home/widgets/article_item.dart';
-import 'package:newsapp_template/utils/remove_splash_screen.dart';
+import 'package:newsapp/ui/screens/common_widgets/error_widgets/generic_error.dart';
+import 'package:newsapp/ui/screens/common_widgets/loading_widget.dart';
+import 'package:newsapp/ui/screens/news_home/widgets/article_item.dart';
+import 'package:newsapp/utils/remove_splash_screen.dart';
 
 class EverythingSection extends StatelessWidget {
   final bool showSearchedNews;

@@ -1,8 +1,8 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsapp_template/config/dependencies/dependecies.dart';
-import 'package:newsapp_template/ui/screens/article/article_screen.dart';
+import 'package:newsapp/config/dependencies/dependecies.dart';
+import 'package:newsapp/ui/screens/article/article_screen.dart';
 
 class ArticleScreenConnector extends StatelessWidget {
   const ArticleScreenConnector({Key? key}) : super(key: key);

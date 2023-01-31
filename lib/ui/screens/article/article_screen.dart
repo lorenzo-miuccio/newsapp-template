@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:newsapp_template/config/theme.dart';
-import 'package:newsapp_template/ui/screens/article/widgets/article_appbar.dart';
-import 'package:newsapp_template/ui/screens/article/widgets/article_bottom_bar.dart';
-import 'package:newsapp_template/ui/screens/common_widgets/publish_date_readtime_widget.dart';
-import 'package:newsapp_template/ui/screens/common_widgets/thumbnail.dart';
-import 'package:newsapp_template/utils/update_snackbar.dart';
+import 'package:newsapp/config/theme.dart';
+import 'package:newsapp/ui/screens/article/widgets/article_appbar.dart';
+import 'package:newsapp/ui/screens/article/widgets/article_bottom_bar.dart';
+import 'package:newsapp/ui/screens/common_widgets/publish_date_readtime_widget.dart';
+import 'package:newsapp/ui/screens/common_widgets/thumbnail.dart';
+import 'package:newsapp/utils/update_snackbar.dart';
 
 
 class ArticleScreen extends StatefulWidget {

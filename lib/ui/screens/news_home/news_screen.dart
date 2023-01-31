@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:newsapp_template/ui/screens/common_widgets/drawer/app_drawer.dart';
-import 'package:newsapp_template/ui/screens/common_widgets/drawer/drawer_icon_appbar.dart';
-import 'package:newsapp_template/ui/screens/news_home/widgets/everything_section.dart';
-import 'package:newsapp_template/ui/screens/news_home/widgets/news_header.dart';
-import 'package:newsapp_template/ui/screens/news_home/widgets/top_headlines_section.dart';
-import 'package:newsapp_template/utils/language_to_locale.dart';
+import 'package:newsapp/ui/screens/common_widgets/drawer/app_drawer.dart';
+import 'package:newsapp/ui/screens/common_widgets/drawer/drawer_icon_appbar.dart';
+import 'package:newsapp/ui/screens/news_home/widgets/everything_section.dart';
+import 'package:newsapp/ui/screens/news_home/widgets/news_header.dart';
+import 'package:newsapp/ui/screens/news_home/widgets/top_headlines_section.dart';
+import 'package:newsapp/utils/language_to_locale.dart';
 
 
 class NewsScreen extends StatefulWidget {
