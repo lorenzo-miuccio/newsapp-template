@@ -54,13 +54,13 @@ dependencies:
   flutter_slidable: ^2.0.0
   share_plus: ^6.3.0
   shared_preferences: ^2.0.15
+  flutter_native_splash: ^2.2.16
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.3.3
   flutter_launcher_icons: ^0.11.0
-  flutter_native_splash: ^2.2.16
 
 
   # The "flutter_lints" package below contains a set of recommended lints to
