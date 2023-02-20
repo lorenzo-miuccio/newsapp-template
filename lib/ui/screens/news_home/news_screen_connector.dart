@@ -4,8 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newsapp/config/dependencies/dependecies.dart';
 import 'package:newsapp/ui/screens/news_home/news_screen.dart';
 
-
-
 class NewsScreenConnector extends StatelessWidget {
   const NewsScreenConnector({Key? key}) : super(key: key);
 

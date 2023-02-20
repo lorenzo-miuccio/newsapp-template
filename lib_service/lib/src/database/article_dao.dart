@@ -33,5 +33,4 @@ abstract class NewsDao {
 
   @Query('SELECT * FROM articles WHERE isTopHead = :isTop AND (isSaved = 1 OR isShared = 1);')
   Future<List<ArticleDb>> findRecentSavedArticles(bool isTop);
-
 }

@@ -24,8 +24,6 @@ class _ChangeLanguageDialogState extends State<ChangeLanguageDialog> {
 
   @override
   Widget build(BuildContext context) {
-
-    var i = Language.values;
     return Dialog(
       child: Column(
         mainAxisSize: MainAxisSize.min,
