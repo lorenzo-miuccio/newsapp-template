@@ -1,7 +1,7 @@
 import 'package:async/async.dart';
 import 'package:data/src/datasource/news_datasources.dart';
 import 'package:data/src/mapping/news_mapping.dart';
-import 'package:data/src/model/article_floor.dart';
+import 'package:data/src/model/article_db.dart';
 import 'package:data/src/model/exceptions.dart';
 import 'package:data/src/serializable/news_serializable.dart';
 import 'package:domain/domain.dart';

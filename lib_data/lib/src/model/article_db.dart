@@ -1,7 +1,7 @@
-import 'package:data/src/model/converter/date_time_converter.dart';
+import 'package:data/src/model/converter/db_converter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'article_floor.g.dart';
+part 'article_db.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class ArticleDb {
@@ -64,8 +64,8 @@ class ArticleDb {
     required bool isSaved,
   }) {
     var result = toJson();
-    result['isShared'] = isShared;
-    result['isSaved'] = isSaved;
+    result['is_shared'] = isShared ? 1 : 0;
+    result['is_saved'] = isSaved ? 1 : 0;
     return ArticleDb.fromJson(result);
   }
 

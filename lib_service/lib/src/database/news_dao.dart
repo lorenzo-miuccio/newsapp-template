@@ -33,8 +33,10 @@ class NewsDao {
     await batch.commit();
   }
 
-  Future<void> updateArticle(ArticleDb article) async => await db.update(tableName, article.toJson(),
-      where: 'url = ?', whereArgs: [article.url], conflictAlgorithm: ConflictAlgorithm.replace).then((value) => print(article.isSaved));
+  Future<void> updateArticle(ArticleDb article) async => await db
+          .update(tableName, article.toJson(),
+              where: 'url = ?', whereArgs: [article.url], conflictAlgorithm: ConflictAlgorithm.replace);
+
 
   Future<void> deleteArticles(List<ArticleDb> articles) async {
     Batch batch = db.batch();

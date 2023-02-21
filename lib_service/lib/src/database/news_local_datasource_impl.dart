@@ -1,6 +1,5 @@
-
 import 'package:data/data.dart';
-import 'package:service/src/database/article_dao.dart';
+import 'package:service/src/database/news_dao.dart';
 
 class NewsLocalDatasourceImpl implements NewsLocalDatasource {
   final NewsDao _articleDao;
@@ -23,7 +22,7 @@ class NewsLocalDatasourceImpl implements NewsLocalDatasource {
   @override
   Future<DateTime?> getLastFetchDate() => _articleDao
       .findLastFetch()
-      .then((value) => value != null ? DateTime.fromMillisecondsSinceEpoch(value) : null)
+      .then((value) => DateTime.fromMillisecondsSinceEpoch(value))
       .catchDbError();
 
   @override

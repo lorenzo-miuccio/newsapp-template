@@ -1,16 +1,24 @@
 // database.dart
 
 import 'package:path/path.dart';
-import 'package:service/service.dart';
 import 'package:sqflite/sqflite.dart';
 
 class NewsSqliteDatabase {
-
   NewsSqliteDatabase._();
 
-  static Future<NewsDao> getDao() async => NewsDao(await _openDatabase());
+  static NewsSqliteDatabase? _instance;
 
-  static Future<Database> _openDatabase() async {
+  //singleton
+  factory NewsSqliteDatabase() => _instance ??= NewsSqliteDatabase._();
+
+  // singleton con field property
+  // static NewsSqliteDatabase get instance =>  _instance ??= NewsSqliteDatabase._();
+
+  Database? _database;
+
+  Future<Database> get database async => _database ??= await _openDatabase();
+
+  Future<Database> _openDatabase() async {
     return openDatabase(
       join(await getDatabasesPath(), 'news_database.db'),
       version: 1,

@@ -1,4 +1,4 @@
-import 'package:data/src/model/article_floor.dart';
+import 'package:data/src/model/article_db.dart';
 import 'package:data/src/serializable/news_serializable.dart';
 import 'package:domain/domain.dart';
 

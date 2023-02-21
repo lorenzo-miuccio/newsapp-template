@@ -18,10 +18,10 @@ extension DataSourcesRegistryExtension on GetIt {
     registerLazySingleton<NewsRemoteDatasource>(
         () => NewsRemoteDatasourceImpl(NewsApi(client, baseUrl: env.baseUrl)));
 
-    final dao = await NewsSqliteDatabase.getDao();
+    final db = await NewsSqliteDatabase().database;
 
     registerLazySingleton<NewsLocalDatasource>(
-        () => NewsLocalDatasourceImpl(articleDao: dao));
+        () => NewsLocalDatasourceImpl(articleDao: NewsDao(db)));
 
     registerLazySingleton<KeyValueService>(
             () => KeyValueServiceImpl(get()));
