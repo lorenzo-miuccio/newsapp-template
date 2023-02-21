@@ -1,20 +1,27 @@
 // database.dart
 
-import 'dart:async';
+import 'package:path/path.dart';
+import 'package:service/service.dart';
+import 'package:sqflite/sqflite.dart';
 
-import 'package:data/data.dart';
-import 'package:floor/floor.dart';
-import 'package:service/src/database/article_dao.dart';
-import 'package:service/src/database/converter/datetime_converter.dart';
+class NewsSqliteDatabase {
 
+  NewsSqliteDatabase._();
 
-// ignore: depend_on_referenced_packages
-import 'package:sqflite/sqflite.dart' as sqflite;
+  static Future<NewsDao> getDao() async => NewsDao(await _openDatabase());
 
-part 'article_database.g.dart'; // the generated code will be there
-
-@Database(version: 1, entities: [ArticleDb])
-@TypeConverters([DateTimeConverter])
-abstract class NewsDatabase extends FloorDatabase {
-  NewsDao get newsDao;
+  static Future<Database> _openDatabase() async {
+    return openDatabase(
+      join(await getDatabasesPath(), 'news_database.db'),
+      version: 1,
+      onCreate: (db, version) {
+        // Run the CREATE TABLE statement on the database.
+        return db.execute(
+          '''CREATE TABLE articles (url TEXT PRIMARY KEY NOT NULL, title TEXT, author TEXT,
+         description TEXT, text TEXT, publish_date INTEGER, read_time INTEGER, url_to_image TEXT,
+         source TEXT, is_shared INTEGER, is_saved INTEGER, is_top INTEGER, last_fetch_date INTEGER)''',
+        );
+      },
+    );
+  }
 }

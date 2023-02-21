@@ -14,14 +14,14 @@ extension DataSourcesRegistryExtension on GetIt {
 
     registerSingleton<SharedPreferences>(await SharedPreferences.getInstance());
 
-    /// DataSource-s
+    /// DataSources
     registerLazySingleton<NewsRemoteDatasource>(
         () => NewsRemoteDatasourceImpl(NewsApi(client, baseUrl: env.baseUrl)));
 
-    final db = await $FloorNewsDatabase.databaseBuilder('news_database.db').build();
+    final dao = await NewsSqliteDatabase.getDao();
 
     registerLazySingleton<NewsLocalDatasource>(
-        () => NewsLocalDatasourceImpl(articleDao: db.newsDao));
+        () => NewsLocalDatasourceImpl(articleDao: dao));
 
     registerLazySingleton<KeyValueService>(
             () => KeyValueServiceImpl(get()));
