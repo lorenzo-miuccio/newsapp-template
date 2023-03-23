@@ -36,7 +36,7 @@ extension EmitNewsFetchStateExtension on Cubit<NewsFetchState> {
           value.fold(((err) {
             remoteFetchError = true;
           }), (articles) async {
-            suggestRefresh != null ? suggestRefresh() : null;
+            suggestRefresh?.call();
             await newsRepo.saveRecentNews(articles, isTop: isTop);
           }));
     }
