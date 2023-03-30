@@ -14,9 +14,8 @@ dependencies:
   data:
     path: ../lib_data
 
-<<<<<<< HEAD
   dio: ^5.1.1
-  retrofit: ^3.3.1
+  retrofit: ^4.0.1
   json_annotation: ^4.7.0
   floor: ^1.4.1
 
