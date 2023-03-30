@@ -6,7 +6,7 @@ extension CatchApiRequestErrorsExtension<T> on Future<T> {
         switch (e.runtimeType) {
           case DioError:
             e = e as DioError;
-            if (e.type == DioErrorType.response) {
+            if (e.type == DioErrorType.badResponse) {
               final res = e.response;
               throw HttpStatusException('${res?.statusCode}');
             } else {

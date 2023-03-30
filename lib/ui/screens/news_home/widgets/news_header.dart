@@ -49,7 +49,7 @@ class NewsHeaderWidget extends StatelessWidget {
       key: ValueKey(title),
       pinned: true,
       leadingWidth: 5,
-      leading: Container(),
+      leading: const SizedBox(),
       centerTitle: false,
       title: Text(
         title,

@@ -7,8 +7,8 @@ extension DataSourcesRegistryExtension on GetIt {
     /// Startup dependencies
     final client = Dio(
       BaseOptions(
-        connectTimeout: 10000,
-        receiveTimeout: 10000,
+        connectTimeout: const Duration(milliseconds: 10000),
+        receiveTimeout: const Duration(milliseconds: 10000),
       ),
     );
 
@@ -23,7 +23,7 @@ extension DataSourcesRegistryExtension on GetIt {
     registerLazySingleton<NewsLocalDatasource>(
         () => NewsLocalDatasourceImpl(articleDao: db.newsDao));
 
-    registerLazySingleton<KeyValueService>(
-            () => KeyValueServiceImpl(get()));
+
+    registerLazySingleton<KeyValueService>(() => KeyValueServiceImpl(get()));
   }
 }
