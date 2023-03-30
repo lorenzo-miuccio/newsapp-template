@@ -7,23 +7,20 @@ extension DataSourcesRegistryExtension on GetIt {
     /// Startup dependencies
     final client = Dio(
       BaseOptions(
-        connectTimeout: 10000,
-        receiveTimeout: 10000,
+        connectTimeout: const Duration(milliseconds: 10000),
+        receiveTimeout: const Duration(milliseconds: 10000),
       ),
     );
 
     registerSingleton<SharedPreferences>(await SharedPreferences.getInstance());
 
     /// DataSources
-    registerLazySingleton<NewsRemoteDatasource>(
-        () => NewsRemoteDatasourceImpl(NewsApi(client, baseUrl: env.baseUrl)));
+    registerLazySingleton<NewsRemoteDatasource>(() => NewsRemoteDatasourceImpl(NewsApi(client, baseUrl: env.baseUrl)));
 
     final db = await NewsSqliteDatabase().database;
 
-    registerLazySingleton<NewsLocalDatasource>(
-        () => NewsLocalDatasourceImpl(articleDao: NewsDao(db)));
+    registerLazySingleton<NewsLocalDatasource>(() => NewsLocalDatasourceImpl(articleDao: NewsDao(db)));
 
-    registerLazySingleton<KeyValueService>(
-            () => KeyValueServiceImpl(get()));
+    registerLazySingleton<KeyValueService>(() => KeyValueServiceImpl(get()));
   }
 }
