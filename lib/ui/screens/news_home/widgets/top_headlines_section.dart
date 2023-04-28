@@ -4,6 +4,7 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:newsapp/ui/screens/common_widgets/error_widgets/generic_error.dart';
 import 'package:newsapp/ui/screens/common_widgets/loading_widget.dart';
 import 'package:newsapp/ui/screens/news_home/widgets/headline_item.dart';
@@ -39,61 +40,61 @@ class _TopHeadlinesSectionState extends State<TopHeadlinesSection> {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: BlocConsumer<TopNewsCubit, NewsFetchState>(
-        listener: (ctx, state) => state.whenOrNull(
-          hasData: (_, validity, freshness) {
-            if ((!validity || !freshness) && ModalRoute.of(context)!.isCurrent) {
-              _showSnackBar(validity, freshness);
-            }
-            checkToRemoveSplashScreen(context.read<EveryThingNewsCubit>().state);
-            return;
-          },
-        ),
-        builder: (ctx, state) {
-          return state.maybeWhen(
-              hasData: (articles, _, __) {
-                return articles.isEmpty
-                    ? const EmptySectionWidget()
-                    : Column(
-                        children: [
-                          CarouselSlider.builder(
-                            carouselController: _carouselController,
-                            options: CarouselOptions(
-                              height: 400,
-                              initialPage: _carouselIndex,
-                              pageSnapping: true,
-                              viewportFraction: 1,
-                              onPageChanged: (index, _) => setState(() => _carouselIndex = index),
-                            ),
-                            itemCount: articles.length,
-                            itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) => HeadlineItem(
-                              article: articles[itemIndex],
-                              refreshNews: widget.refreshNews,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: articles.asMap().entries.map((entry) {
-                              return Container(
-                                width: 12.0,
-                                height: 12.0,
-                                margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color:
-                                        (Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)
-                                            .withOpacity(_carouselIndex == entry.key ? 0.9 : 0.4)),
-                              );
-                            }).toList(),
-                          ),
-                        ],
-                      );
-              },
-              loading: () => const LoadingWidget(),
-              orElse: () => const GenericErrorWidget());
+    return BlocConsumer<TopNewsCubit, NewsFetchState>(
+      listener: (ctx, state) => state.whenOrNull(
+        hasData: (_, validity, freshness) {
+          if ((!validity || !freshness) && ModalRoute.of(context)!.isCurrent) {
+            _showSnackBar(validity, freshness);
+          }
+          // checkToRemoveSplashScreen(context.read<EveryThingNewsCubit>().state);
+          FlutterNativeSplash.remove();
+          return;
         },
       ),
+      builder: (ctx, state) {
+        return state.maybeWhen(
+            hasData: (articles, _, __) {
+              return articles.isEmpty
+                  ? const EmptySectionWidget()
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CarouselSlider.builder(
+                          carouselController: _carouselController,
+                          options: CarouselOptions(
+                            height: 400,
+                            initialPage: _carouselIndex,
+                            pageSnapping: true,
+                            viewportFraction: 1,
+                            onPageChanged: (index, _) => setState(() => _carouselIndex = index),
+                          ),
+                          itemCount: articles.length,
+                          itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) => HeadlineItem(
+                            article: articles[itemIndex],
+                            refreshNews: widget.refreshNews,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: articles.asMap().entries.map((entry) {
+                            return Container(
+                              width: 12.0,
+                              height: 12.0,
+                              margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color:
+                                      (Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)
+                                          .withOpacity(_carouselIndex == entry.key ? 0.9 : 0.4)),
+                            );
+                          }).toList(),
+                        ),
+                      ],
+                    );
+            },
+            loading: () => const LoadingWidget(),
+            orElse: () => const GenericErrorWidget());
+      },
     );
   }
 }

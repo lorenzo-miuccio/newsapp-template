@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/utils/check_device_dimension.dart';
 
 class _CustomSliverHeader extends SliverPersistentHeaderDelegate {
   final String title;
@@ -45,16 +46,37 @@ class NewsHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverAppBar(
-      key: ValueKey(title),
-      pinned: true,
-      leadingWidth: 5,
-      leading: const SizedBox(),
-      centerTitle: false,
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.bodyText1,
-      ),
-    );
+    final width = MediaQuery.of(context).size.width;
+
+    return isSmallDevice(width)
+        ? SliverAppBar(
+            key: ValueKey(title),
+            pinned: true,
+            leadingWidth: 5,
+            leading: const SizedBox(),
+            centerTitle: false,
+            title: Text(
+              title,
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+          )
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20, top: 20, bottom: 10),
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+              ),
+              const Divider(
+                thickness: 1.5,
+                indent: 10,
+                endIndent: 10,
+                height: 0,
+              )
+            ],
+          );
   }
 }

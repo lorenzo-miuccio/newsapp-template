@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newsapp/ui/screens/common_widgets/error_widgets/generic_error.dart';
 import 'package:newsapp/ui/screens/common_widgets/loading_widget.dart';
 import 'package:newsapp/ui/screens/news_home/widgets/article_item.dart';
+import 'package:newsapp/utils/check_device_dimension.dart';
 import 'package:newsapp/utils/remove_splash_screen.dart';
 
 class EverythingSection extends StatelessWidget {
@@ -18,21 +19,33 @@ class EverythingSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return BlocBuilder<EveryThingNewsCubit, NewsFetchState>(
       builder: (ctx, state) {
         return state.maybeWhen(
           hasData: (articles, _, __) {
-            checkToRemoveSplashScreen(context.read<TopNewsCubit>().state);
-            return SliverFixedExtentList(
-              delegate: SliverChildBuilderDelegate(
-                (ctx, index) => ArticleItem(articles[index], showSearchedNews ? () => () {} : refreshNews),
-                childCount: articles.length,
-              ),
-              itemExtent: 70,
-            );
+            return isSmallDevice(width)
+                ? SliverFixedExtentList(
+                    delegate: SliverChildBuilderDelegate(
+                      (ctx, index) => ArticleItem(articles[index], showSearchedNews ? () => () {} : refreshNews),
+                      childCount: articles.length,
+                    ),
+                    itemExtent: 70,
+                  )
+                : Expanded(
+                  child: ListView.builder(
+                      itemBuilder: (ctx, index) => ArticleItem(articles[index], showSearchedNews ? null : refreshNews),
+                      itemExtent: 70,
+                      itemCount: articles.length,
+                    ),
+                );
           },
-          loading: () => const SliverFillRemaining(child: LoadingWidget()),
-          orElse: () => const SliverFillRemaining(child: GenericErrorWidget()),
+          loading: () =>
+              isSmallDevice(width) ? const SliverFillRemaining(child: LoadingWidget()) : const LoadingWidget(),
+          orElse: () => isSmallDevice(width)
+              ? const SliverFillRemaining(child: GenericErrorWidget())
+              : const GenericErrorWidget(),
         );
       },
     );

@@ -6,7 +6,7 @@ import 'package:newsapp/ui/screens/common_widgets/article_image_widget.dart';
 
 class ArticleItem extends StatelessWidget {
   final Article article;
-  final void Function() refresh;
+  final void Function()? refresh;
 
   const ArticleItem(this.article, this.refresh, {Key? key}) : super(key: key);
 
@@ -15,7 +15,7 @@ class ArticleItem extends StatelessWidget {
     return InkWell(
       onTap: () => Navigator.of(context)
           .pushNamed(ArticleScreen.routeName, arguments: article)
-          .then((value) => refresh()),
+          .then((value) => refresh?.call()),
       child: Padding(
           padding: const EdgeInsets.only(bottom: 7),
           child: ListTile(
