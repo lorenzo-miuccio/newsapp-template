@@ -28,7 +28,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           BlocBuilder<SettingsCubit, Settings>(
             builder: (ctx, settingsState) => ListTile(
-              title: Text(settingsState.locale.getLanguage(context), style: const TextStyle(fontSize: 16)),
+              title: Text(settingsState.language.getLanguage(context), style: const TextStyle(fontSize: 16)),
               tileColor: Colors.grey.withOpacity(0.2),
               trailing: const Icon(Icons.navigate_next),
               onTap: () => showDialog(context: context, builder: (ctx) => const ChangeLanguageDialog())

@@ -35,8 +35,8 @@ class App extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          locale: settingState.locale.getLocale(),
-          supportedLocales: Language.values.map((e) => e.getLocale()),
+          locale: settingState.language.locale,
+          supportedLocales: Language.values.map((e) => e.locale),
           routes: {
             '/': (_) => const NewsScreenConnector(),
             SavedSharedScreen.sharedRouteName: (_) => const SavedSharedScreenConnector(AppScreen.shared),

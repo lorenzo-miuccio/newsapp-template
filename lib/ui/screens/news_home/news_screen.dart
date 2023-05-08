@@ -36,13 +36,13 @@ class _NewsScreenState extends State<NewsScreen> {
 
   void _refreshNews({bool forceRemoteFetch = false}) {
     final refreshNewsUS = RefreshNewsUS(context.read(), context.read());
-    refreshNewsUS(context.read<SettingsCubit>().state.locale.getCountryId(), forceRemoteFetch: forceRemoteFetch);
+    refreshNewsUS(context.read<SettingsCubit>().state.language.getCountryId(), forceRemoteFetch: forceRemoteFetch);
   }
 
   void _searchForArticles() {
     context
         .read<EveryThingNewsCubit>()
-        .searchNews(characters: _searchBarController.text, lan: context.read<SettingsCubit>().state.locale.name);
+        .searchNews(characters: _searchBarController.text, lan: context.read<SettingsCubit>().state.language.name);
   }
 
   void _checkTextInput(String input) {

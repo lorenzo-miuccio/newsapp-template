@@ -14,6 +14,6 @@ enum Language{
 @freezed
 class Settings with _$Settings {
   const factory Settings({
-    required Language locale,
+    required Language language,
   }) = _Settings;
 }

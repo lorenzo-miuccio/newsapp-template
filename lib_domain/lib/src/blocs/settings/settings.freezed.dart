@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Settings {
-  Language get locale => throw _privateConstructorUsedError;
+  Language get language => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SettingsCopyWith<Settings> get copyWith =>
@@ -28,7 +28,7 @@ abstract class $SettingsCopyWith<$Res> {
   factory $SettingsCopyWith(Settings value, $Res Function(Settings) then) =
       _$SettingsCopyWithImpl<$Res, Settings>;
   @useResult
-  $Res call({Language locale});
+  $Res call({Language language});
 }
 
 /// @nodoc
@@ -44,12 +44,12 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? locale = null,
+    Object? language = null,
   }) {
     return _then(_value.copyWith(
-      locale: null == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
               as Language,
     ) as $Val);
   }
@@ -62,7 +62,7 @@ abstract class _$$_SettingsCopyWith<$Res> implements $SettingsCopyWith<$Res> {
       __$$_SettingsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Language locale});
+  $Res call({Language language});
 }
 
 /// @nodoc
@@ -76,12 +76,12 @@ class __$$_SettingsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? locale = null,
+    Object? language = null,
   }) {
     return _then(_$_Settings(
-      locale: null == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
               as Language,
     ));
   }
@@ -90,14 +90,14 @@ class __$$_SettingsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Settings implements _Settings {
-  const _$_Settings({required this.locale});
+  const _$_Settings({required this.language});
 
   @override
-  final Language locale;
+  final Language language;
 
   @override
   String toString() {
-    return 'Settings(locale: $locale)';
+    return 'Settings(language: $language)';
   }
 
   @override
@@ -105,11 +105,12 @@ class _$_Settings implements _Settings {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Settings &&
-            (identical(other.locale, locale) || other.locale == locale));
+            (identical(other.language, language) ||
+                other.language == language));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, locale);
+  int get hashCode => Object.hash(runtimeType, language);
 
   @JsonKey(ignore: true)
   @override
@@ -119,10 +120,10 @@ class _$_Settings implements _Settings {
 }
 
 abstract class _Settings implements Settings {
-  const factory _Settings({required final Language locale}) = _$_Settings;
+  const factory _Settings({required final Language language}) = _$_Settings;
 
   @override
-  Language get locale;
+  Language get language;
   @override
   @JsonKey(ignore: true)
   _$$_SettingsCopyWith<_$_Settings> get copyWith =>

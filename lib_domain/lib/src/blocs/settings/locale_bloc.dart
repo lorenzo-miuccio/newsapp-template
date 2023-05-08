@@ -11,8 +11,8 @@ class SettingsCubit extends Cubit<Settings> {
 
   void updateLanguage(Language newLocale) {
     _languageRepository.updateLanguage(newLocale.name);
-    emit(state.copyWith(locale: newLocale));
+    emit(state.copyWith(language: newLocale));
   }
 }
 
-Settings _mapper(String locale) => Settings(locale: Language.values.firstWhereOrNull((e) => e.name == locale) ?? Language.fallback);
+Settings _mapper(String locale) => Settings(language: Language.values.firstWhereOrNull((e) => e.name == locale) ?? Language.fallback);
