@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:domain/src/blocs/news_fetch/news_cubit_extension.dart';
+import 'package:domain/src/blocs/news_fetch/util/news_cubit_extension.dart';
 import 'package:domain/src/blocs/news_fetch/news_fetch_state.dart';
 import 'package:domain/src/repository/news_repository.dart';
 
-class TopNewsCubit extends Cubit<NewsFetchState> {
+class TopNewsCubit extends Cubit<NewsFetchState> with NewsCubitMixin {
   final NewsRepository _newsRepository;
 
   Timer? _timer;
@@ -15,7 +15,7 @@ class TopNewsCubit extends Cubit<NewsFetchState> {
   Future<void> getTopNews(String country, {bool forceRemoteFetch = false}) async {
     emit(const NewsFetchState.loading());
 
-    fetchNews(_newsRepository,
+    return fetchNews(_newsRepository,
             isTop: true, forceRemoteFetch: forceRemoteFetch, suggestRefresh: _suggestRefresh, country: country)
         .then((value) => emit(value));
   }

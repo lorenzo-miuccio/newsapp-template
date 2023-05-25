@@ -14,11 +14,11 @@ extension _DataErrorToNewsFetchStateExtension on DataError {
       );
 }
 
-extension EmitNewsFetchStateExtension on Cubit<NewsFetchState> {
+mixin NewsCubitMixin on Cubit<NewsFetchState> {
   NewsFetchState getNewsFetchState(Either<DataError, List<Article>> either, {bool remoteErr = false}) {
     NewsFetchState? stateToEmit;
     either.fold((dataErr) => stateToEmit = dataErr.toNewsFetchState(), (news) =>
-      stateToEmit = NewsFetchState.hasData(articles: news, validity: !remoteErr, freshness: true));
+    stateToEmit = NewsFetchState.hasData(articles: news, validity: !remoteErr, freshness: true));
 
     return stateToEmit!;
   }
@@ -45,6 +45,5 @@ extension EmitNewsFetchStateExtension on Cubit<NewsFetchState> {
         .getLocalNews(isTop: isTop)
         .then((value) => getNewsFetchState(value, remoteErr: remoteFetchError));
   }
-
 }
 
