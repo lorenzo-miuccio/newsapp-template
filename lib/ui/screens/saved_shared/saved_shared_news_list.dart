@@ -29,17 +29,17 @@ class SavedSharedNewsList extends StatelessWidget {
     final appLocalizations = AppLocalizations.of(context)!;
 
     return BlocListener<UpdateArticleCubit, ArticleUpdateState>(
-      listener: (context, state) => state.maybeWhen(
-          savedStatus: (_) {
-            showUpdateSnackBar(context, appLocalizations.removed(appLocalizations.saved));
-            refresh();
-          },
-          sharedStatus: (status) {
-            showUpdateSnackBar(context, appLocalizations.removed(appLocalizations.shared));
-            refresh();
-          },
-          error: (_) => showUpdateSnackBar(context, 'An error occured'),
-          orElse: () {}),
+      listener: (context, state) => state.whenOrNull(
+        savedStatus: (_) {
+          showUpdateSnackBar(context, UpdateStatus.removedFromSaved);
+          refresh();
+        },
+        sharedStatus: (_) {
+          showUpdateSnackBar(context, UpdateStatus.removedFromShared);
+          refresh();
+        },
+        error: (_) => showUpdateSnackBar(context, UpdateStatus.error),
+      ),
       child: BlocBuilder<SavedSharedNewsCubit, NewsFetchState>(
         builder: (ctx, state) {
           return state.maybeWhen(
