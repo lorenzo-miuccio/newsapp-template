@@ -1,0 +1,3 @@
+class LoadTopNewsAction {
+  final forceRemoteFetch
+}
