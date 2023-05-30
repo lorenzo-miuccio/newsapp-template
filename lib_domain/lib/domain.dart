@@ -14,6 +14,8 @@ export 'src/entity/either.dart';
 export 'src/error/data_error.dart';
 export 'src/blocs/settings/locale_bloc.dart';
 export 'src/blocs/settings/settings.dart';
+export 'src/redux/app_state.dart';
+export 'src/redux/reducers/app_reducer.dart';
 
 
 

@@ -1,3 +1,4 @@
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:newsapp/config/dependencies/dependecies.dart';
@@ -10,12 +11,8 @@ Future<void> run(Env env) async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await DependencyRegistry.registerDependencies(env);
+  final store = Store<AppState>(appReducer, initialState: AppState.initialState());
+
+
   runApp(const App());
-
-  final store = Store<AppState>(counterReducer, initialState: 0);
-
-  runApp(FlutterReduxApp(
-    title: 'Flutter Redux Demo',
-    store: store,
-  ));;
 }

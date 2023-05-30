@@ -1,5 +1,5 @@
 import 'package:domain/src/redux/app_state.dart';
-import 'package:domain/src/redux/reducers/topnews_reducer.dart';
+import 'package:domain/src/redux/reducers/news_reducer.dart';
 
 AppState appReducer(AppState state, action) {
   return AppState(
