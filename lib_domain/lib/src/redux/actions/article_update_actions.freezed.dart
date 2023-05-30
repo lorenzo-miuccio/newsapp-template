@@ -18,22 +18,28 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UpdateArticleActions {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool save) saveOrUnSave,
-    required TResult Function(bool share) shareOrUnShare,
+    required TResult Function(Article article) saveOrUnSave,
+    required TResult Function(Article article) shareOrUnShare,
+    required TResult Function(bool status) saveStatusChanged,
+    required TResult Function(bool status) shareStatusChanged,
     required TResult Function(String? message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool save)? saveOrUnSave,
-    TResult? Function(bool share)? shareOrUnShare,
+    TResult? Function(Article article)? saveOrUnSave,
+    TResult? Function(Article article)? shareOrUnShare,
+    TResult? Function(bool status)? saveStatusChanged,
+    TResult? Function(bool status)? shareStatusChanged,
     TResult? Function(String? message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool save)? saveOrUnSave,
-    TResult Function(bool share)? shareOrUnShare,
+    TResult Function(Article article)? saveOrUnSave,
+    TResult Function(Article article)? shareOrUnShare,
+    TResult Function(bool status)? saveStatusChanged,
+    TResult Function(bool status)? shareStatusChanged,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) =>
@@ -42,6 +48,8 @@ mixin _$UpdateArticleActions {
   TResult map<TResult extends Object?>({
     required TResult Function(SaveOrUnSaveArticleAction value) saveOrUnSave,
     required TResult Function(ShareOrUnShareArticleAction value) shareOrUnShare,
+    required TResult Function(SaveStatusAction value) saveStatusChanged,
+    required TResult Function(ShareStatusAction value) shareStatusChanged,
     required TResult Function(ErrorUpdateAction value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +57,8 @@ mixin _$UpdateArticleActions {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
     TResult? Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult? Function(SaveStatusAction value)? saveStatusChanged,
+    TResult? Function(ShareStatusAction value)? shareStatusChanged,
     TResult? Function(ErrorUpdateAction value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +66,8 @@ mixin _$UpdateArticleActions {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
     TResult Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult Function(SaveStatusAction value)? saveStatusChanged,
+    TResult Function(ShareStatusAction value)? shareStatusChanged,
     TResult Function(ErrorUpdateAction value)? error,
     required TResult orElse(),
   }) =>
@@ -88,7 +100,9 @@ abstract class _$$SaveOrUnSaveArticleActionCopyWith<$Res> {
           $Res Function(_$SaveOrUnSaveArticleAction) then) =
       __$$SaveOrUnSaveArticleActionCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool save});
+  $Res call({Article article});
+
+  $ArticleCopyWith<$Res> get article;
 }
 
 /// @nodoc
@@ -103,28 +117,36 @@ class __$$SaveOrUnSaveArticleActionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? save = null,
+    Object? article = null,
   }) {
     return _then(_$SaveOrUnSaveArticleAction(
-      save: null == save
-          ? _value.save
-          : save // ignore: cast_nullable_to_non_nullable
-              as bool,
+      null == article
+          ? _value.article
+          : article // ignore: cast_nullable_to_non_nullable
+              as Article,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ArticleCopyWith<$Res> get article {
+    return $ArticleCopyWith<$Res>(_value.article, (value) {
+      return _then(_value.copyWith(article: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$SaveOrUnSaveArticleAction implements SaveOrUnSaveArticleAction {
-  const _$SaveOrUnSaveArticleAction({required this.save});
+  const _$SaveOrUnSaveArticleAction(this.article);
 
   @override
-  final bool save;
+  final Article article;
 
   @override
   String toString() {
-    return 'UpdateArticleActions.saveOrUnSave(save: $save)';
+    return 'UpdateArticleActions.saveOrUnSave(article: $article)';
   }
 
   @override
@@ -132,11 +154,11 @@ class _$SaveOrUnSaveArticleAction implements SaveOrUnSaveArticleAction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveOrUnSaveArticleAction &&
-            (identical(other.save, save) || other.save == save));
+            (identical(other.article, article) || other.article == article));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, save);
+  int get hashCode => Object.hash(runtimeType, article);
 
   @JsonKey(ignore: true)
   @override
@@ -148,33 +170,39 @@ class _$SaveOrUnSaveArticleAction implements SaveOrUnSaveArticleAction {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool save) saveOrUnSave,
-    required TResult Function(bool share) shareOrUnShare,
+    required TResult Function(Article article) saveOrUnSave,
+    required TResult Function(Article article) shareOrUnShare,
+    required TResult Function(bool status) saveStatusChanged,
+    required TResult Function(bool status) shareStatusChanged,
     required TResult Function(String? message) error,
   }) {
-    return saveOrUnSave(save);
+    return saveOrUnSave(article);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool save)? saveOrUnSave,
-    TResult? Function(bool share)? shareOrUnShare,
+    TResult? Function(Article article)? saveOrUnSave,
+    TResult? Function(Article article)? shareOrUnShare,
+    TResult? Function(bool status)? saveStatusChanged,
+    TResult? Function(bool status)? shareStatusChanged,
     TResult? Function(String? message)? error,
   }) {
-    return saveOrUnSave?.call(save);
+    return saveOrUnSave?.call(article);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool save)? saveOrUnSave,
-    TResult Function(bool share)? shareOrUnShare,
+    TResult Function(Article article)? saveOrUnSave,
+    TResult Function(Article article)? shareOrUnShare,
+    TResult Function(bool status)? saveStatusChanged,
+    TResult Function(bool status)? shareStatusChanged,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
     if (saveOrUnSave != null) {
-      return saveOrUnSave(save);
+      return saveOrUnSave(article);
     }
     return orElse();
   }
@@ -184,6 +212,8 @@ class _$SaveOrUnSaveArticleAction implements SaveOrUnSaveArticleAction {
   TResult map<TResult extends Object?>({
     required TResult Function(SaveOrUnSaveArticleAction value) saveOrUnSave,
     required TResult Function(ShareOrUnShareArticleAction value) shareOrUnShare,
+    required TResult Function(SaveStatusAction value) saveStatusChanged,
+    required TResult Function(ShareStatusAction value) shareStatusChanged,
     required TResult Function(ErrorUpdateAction value) error,
   }) {
     return saveOrUnSave(this);
@@ -194,6 +224,8 @@ class _$SaveOrUnSaveArticleAction implements SaveOrUnSaveArticleAction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
     TResult? Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult? Function(SaveStatusAction value)? saveStatusChanged,
+    TResult? Function(ShareStatusAction value)? shareStatusChanged,
     TResult? Function(ErrorUpdateAction value)? error,
   }) {
     return saveOrUnSave?.call(this);
@@ -204,6 +236,8 @@ class _$SaveOrUnSaveArticleAction implements SaveOrUnSaveArticleAction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
     TResult Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult Function(SaveStatusAction value)? saveStatusChanged,
+    TResult Function(ShareStatusAction value)? shareStatusChanged,
     TResult Function(ErrorUpdateAction value)? error,
     required TResult orElse(),
   }) {
@@ -215,10 +249,10 @@ class _$SaveOrUnSaveArticleAction implements SaveOrUnSaveArticleAction {
 }
 
 abstract class SaveOrUnSaveArticleAction implements UpdateArticleActions {
-  const factory SaveOrUnSaveArticleAction({required final bool save}) =
+  const factory SaveOrUnSaveArticleAction(final Article article) =
       _$SaveOrUnSaveArticleAction;
 
-  bool get save;
+  Article get article;
   @JsonKey(ignore: true)
   _$$SaveOrUnSaveArticleActionCopyWith<_$SaveOrUnSaveArticleAction>
       get copyWith => throw _privateConstructorUsedError;
@@ -231,7 +265,9 @@ abstract class _$$ShareOrUnShareArticleActionCopyWith<$Res> {
           $Res Function(_$ShareOrUnShareArticleAction) then) =
       __$$ShareOrUnShareArticleActionCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool share});
+  $Res call({Article article});
+
+  $ArticleCopyWith<$Res> get article;
 }
 
 /// @nodoc
@@ -247,28 +283,36 @@ class __$$ShareOrUnShareArticleActionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? share = null,
+    Object? article = null,
   }) {
     return _then(_$ShareOrUnShareArticleAction(
-      share: null == share
-          ? _value.share
-          : share // ignore: cast_nullable_to_non_nullable
-              as bool,
+      null == article
+          ? _value.article
+          : article // ignore: cast_nullable_to_non_nullable
+              as Article,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ArticleCopyWith<$Res> get article {
+    return $ArticleCopyWith<$Res>(_value.article, (value) {
+      return _then(_value.copyWith(article: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$ShareOrUnShareArticleAction implements ShareOrUnShareArticleAction {
-  const _$ShareOrUnShareArticleAction({required this.share});
+  const _$ShareOrUnShareArticleAction(this.article);
 
   @override
-  final bool share;
+  final Article article;
 
   @override
   String toString() {
-    return 'UpdateArticleActions.shareOrUnShare(share: $share)';
+    return 'UpdateArticleActions.shareOrUnShare(article: $article)';
   }
 
   @override
@@ -276,11 +320,11 @@ class _$ShareOrUnShareArticleAction implements ShareOrUnShareArticleAction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ShareOrUnShareArticleAction &&
-            (identical(other.share, share) || other.share == share));
+            (identical(other.article, article) || other.article == article));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, share);
+  int get hashCode => Object.hash(runtimeType, article);
 
   @JsonKey(ignore: true)
   @override
@@ -292,33 +336,39 @@ class _$ShareOrUnShareArticleAction implements ShareOrUnShareArticleAction {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool save) saveOrUnSave,
-    required TResult Function(bool share) shareOrUnShare,
+    required TResult Function(Article article) saveOrUnSave,
+    required TResult Function(Article article) shareOrUnShare,
+    required TResult Function(bool status) saveStatusChanged,
+    required TResult Function(bool status) shareStatusChanged,
     required TResult Function(String? message) error,
   }) {
-    return shareOrUnShare(share);
+    return shareOrUnShare(article);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool save)? saveOrUnSave,
-    TResult? Function(bool share)? shareOrUnShare,
+    TResult? Function(Article article)? saveOrUnSave,
+    TResult? Function(Article article)? shareOrUnShare,
+    TResult? Function(bool status)? saveStatusChanged,
+    TResult? Function(bool status)? shareStatusChanged,
     TResult? Function(String? message)? error,
   }) {
-    return shareOrUnShare?.call(share);
+    return shareOrUnShare?.call(article);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool save)? saveOrUnSave,
-    TResult Function(bool share)? shareOrUnShare,
+    TResult Function(Article article)? saveOrUnSave,
+    TResult Function(Article article)? shareOrUnShare,
+    TResult Function(bool status)? saveStatusChanged,
+    TResult Function(bool status)? shareStatusChanged,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
     if (shareOrUnShare != null) {
-      return shareOrUnShare(share);
+      return shareOrUnShare(article);
     }
     return orElse();
   }
@@ -328,6 +378,8 @@ class _$ShareOrUnShareArticleAction implements ShareOrUnShareArticleAction {
   TResult map<TResult extends Object?>({
     required TResult Function(SaveOrUnSaveArticleAction value) saveOrUnSave,
     required TResult Function(ShareOrUnShareArticleAction value) shareOrUnShare,
+    required TResult Function(SaveStatusAction value) saveStatusChanged,
+    required TResult Function(ShareStatusAction value) shareStatusChanged,
     required TResult Function(ErrorUpdateAction value) error,
   }) {
     return shareOrUnShare(this);
@@ -338,6 +390,8 @@ class _$ShareOrUnShareArticleAction implements ShareOrUnShareArticleAction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
     TResult? Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult? Function(SaveStatusAction value)? saveStatusChanged,
+    TResult? Function(ShareStatusAction value)? shareStatusChanged,
     TResult? Function(ErrorUpdateAction value)? error,
   }) {
     return shareOrUnShare?.call(this);
@@ -348,6 +402,8 @@ class _$ShareOrUnShareArticleAction implements ShareOrUnShareArticleAction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
     TResult Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult Function(SaveStatusAction value)? saveStatusChanged,
+    TResult Function(ShareStatusAction value)? shareStatusChanged,
     TResult Function(ErrorUpdateAction value)? error,
     required TResult orElse(),
   }) {
@@ -359,13 +415,317 @@ class _$ShareOrUnShareArticleAction implements ShareOrUnShareArticleAction {
 }
 
 abstract class ShareOrUnShareArticleAction implements UpdateArticleActions {
-  const factory ShareOrUnShareArticleAction({required final bool share}) =
+  const factory ShareOrUnShareArticleAction(final Article article) =
       _$ShareOrUnShareArticleAction;
 
-  bool get share;
+  Article get article;
   @JsonKey(ignore: true)
   _$$ShareOrUnShareArticleActionCopyWith<_$ShareOrUnShareArticleAction>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SaveStatusActionCopyWith<$Res> {
+  factory _$$SaveStatusActionCopyWith(
+          _$SaveStatusAction value, $Res Function(_$SaveStatusAction) then) =
+      __$$SaveStatusActionCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool status});
+}
+
+/// @nodoc
+class __$$SaveStatusActionCopyWithImpl<$Res>
+    extends _$UpdateArticleActionsCopyWithImpl<$Res, _$SaveStatusAction>
+    implements _$$SaveStatusActionCopyWith<$Res> {
+  __$$SaveStatusActionCopyWithImpl(
+      _$SaveStatusAction _value, $Res Function(_$SaveStatusAction) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+  }) {
+    return _then(_$SaveStatusAction(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveStatusAction implements SaveStatusAction {
+  const _$SaveStatusAction({required this.status});
+
+  @override
+  final bool status;
+
+  @override
+  String toString() {
+    return 'UpdateArticleActions.saveStatusChanged(status: $status)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveStatusAction &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, status);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveStatusActionCopyWith<_$SaveStatusAction> get copyWith =>
+      __$$SaveStatusActionCopyWithImpl<_$SaveStatusAction>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Article article) saveOrUnSave,
+    required TResult Function(Article article) shareOrUnShare,
+    required TResult Function(bool status) saveStatusChanged,
+    required TResult Function(bool status) shareStatusChanged,
+    required TResult Function(String? message) error,
+  }) {
+    return saveStatusChanged(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Article article)? saveOrUnSave,
+    TResult? Function(Article article)? shareOrUnShare,
+    TResult? Function(bool status)? saveStatusChanged,
+    TResult? Function(bool status)? shareStatusChanged,
+    TResult? Function(String? message)? error,
+  }) {
+    return saveStatusChanged?.call(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Article article)? saveOrUnSave,
+    TResult Function(Article article)? shareOrUnShare,
+    TResult Function(bool status)? saveStatusChanged,
+    TResult Function(bool status)? shareStatusChanged,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
+  }) {
+    if (saveStatusChanged != null) {
+      return saveStatusChanged(status);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SaveOrUnSaveArticleAction value) saveOrUnSave,
+    required TResult Function(ShareOrUnShareArticleAction value) shareOrUnShare,
+    required TResult Function(SaveStatusAction value) saveStatusChanged,
+    required TResult Function(ShareStatusAction value) shareStatusChanged,
+    required TResult Function(ErrorUpdateAction value) error,
+  }) {
+    return saveStatusChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
+    TResult? Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult? Function(SaveStatusAction value)? saveStatusChanged,
+    TResult? Function(ShareStatusAction value)? shareStatusChanged,
+    TResult? Function(ErrorUpdateAction value)? error,
+  }) {
+    return saveStatusChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
+    TResult Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult Function(SaveStatusAction value)? saveStatusChanged,
+    TResult Function(ShareStatusAction value)? shareStatusChanged,
+    TResult Function(ErrorUpdateAction value)? error,
+    required TResult orElse(),
+  }) {
+    if (saveStatusChanged != null) {
+      return saveStatusChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SaveStatusAction implements UpdateArticleActions {
+  const factory SaveStatusAction({required final bool status}) =
+      _$SaveStatusAction;
+
+  bool get status;
+  @JsonKey(ignore: true)
+  _$$SaveStatusActionCopyWith<_$SaveStatusAction> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ShareStatusActionCopyWith<$Res> {
+  factory _$$ShareStatusActionCopyWith(
+          _$ShareStatusAction value, $Res Function(_$ShareStatusAction) then) =
+      __$$ShareStatusActionCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool status});
+}
+
+/// @nodoc
+class __$$ShareStatusActionCopyWithImpl<$Res>
+    extends _$UpdateArticleActionsCopyWithImpl<$Res, _$ShareStatusAction>
+    implements _$$ShareStatusActionCopyWith<$Res> {
+  __$$ShareStatusActionCopyWithImpl(
+      _$ShareStatusAction _value, $Res Function(_$ShareStatusAction) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+  }) {
+    return _then(_$ShareStatusAction(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ShareStatusAction implements ShareStatusAction {
+  const _$ShareStatusAction({required this.status});
+
+  @override
+  final bool status;
+
+  @override
+  String toString() {
+    return 'UpdateArticleActions.shareStatusChanged(status: $status)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ShareStatusAction &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, status);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ShareStatusActionCopyWith<_$ShareStatusAction> get copyWith =>
+      __$$ShareStatusActionCopyWithImpl<_$ShareStatusAction>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Article article) saveOrUnSave,
+    required TResult Function(Article article) shareOrUnShare,
+    required TResult Function(bool status) saveStatusChanged,
+    required TResult Function(bool status) shareStatusChanged,
+    required TResult Function(String? message) error,
+  }) {
+    return shareStatusChanged(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Article article)? saveOrUnSave,
+    TResult? Function(Article article)? shareOrUnShare,
+    TResult? Function(bool status)? saveStatusChanged,
+    TResult? Function(bool status)? shareStatusChanged,
+    TResult? Function(String? message)? error,
+  }) {
+    return shareStatusChanged?.call(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Article article)? saveOrUnSave,
+    TResult Function(Article article)? shareOrUnShare,
+    TResult Function(bool status)? saveStatusChanged,
+    TResult Function(bool status)? shareStatusChanged,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
+  }) {
+    if (shareStatusChanged != null) {
+      return shareStatusChanged(status);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SaveOrUnSaveArticleAction value) saveOrUnSave,
+    required TResult Function(ShareOrUnShareArticleAction value) shareOrUnShare,
+    required TResult Function(SaveStatusAction value) saveStatusChanged,
+    required TResult Function(ShareStatusAction value) shareStatusChanged,
+    required TResult Function(ErrorUpdateAction value) error,
+  }) {
+    return shareStatusChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
+    TResult? Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult? Function(SaveStatusAction value)? saveStatusChanged,
+    TResult? Function(ShareStatusAction value)? shareStatusChanged,
+    TResult? Function(ErrorUpdateAction value)? error,
+  }) {
+    return shareStatusChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
+    TResult Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult Function(SaveStatusAction value)? saveStatusChanged,
+    TResult Function(ShareStatusAction value)? shareStatusChanged,
+    TResult Function(ErrorUpdateAction value)? error,
+    required TResult orElse(),
+  }) {
+    if (shareStatusChanged != null) {
+      return shareStatusChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ShareStatusAction implements UpdateArticleActions {
+  const factory ShareStatusAction({required final bool status}) =
+      _$ShareStatusAction;
+
+  bool get status;
+  @JsonKey(ignore: true)
+  _$$ShareStatusActionCopyWith<_$ShareStatusAction> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -432,8 +792,10 @@ class _$ErrorUpdateAction implements ErrorUpdateAction {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool save) saveOrUnSave,
-    required TResult Function(bool share) shareOrUnShare,
+    required TResult Function(Article article) saveOrUnSave,
+    required TResult Function(Article article) shareOrUnShare,
+    required TResult Function(bool status) saveStatusChanged,
+    required TResult Function(bool status) shareStatusChanged,
     required TResult Function(String? message) error,
   }) {
     return error(message);
@@ -442,8 +804,10 @@ class _$ErrorUpdateAction implements ErrorUpdateAction {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool save)? saveOrUnSave,
-    TResult? Function(bool share)? shareOrUnShare,
+    TResult? Function(Article article)? saveOrUnSave,
+    TResult? Function(Article article)? shareOrUnShare,
+    TResult? Function(bool status)? saveStatusChanged,
+    TResult? Function(bool status)? shareStatusChanged,
     TResult? Function(String? message)? error,
   }) {
     return error?.call(message);
@@ -452,8 +816,10 @@ class _$ErrorUpdateAction implements ErrorUpdateAction {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool save)? saveOrUnSave,
-    TResult Function(bool share)? shareOrUnShare,
+    TResult Function(Article article)? saveOrUnSave,
+    TResult Function(Article article)? shareOrUnShare,
+    TResult Function(bool status)? saveStatusChanged,
+    TResult Function(bool status)? shareStatusChanged,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -468,6 +834,8 @@ class _$ErrorUpdateAction implements ErrorUpdateAction {
   TResult map<TResult extends Object?>({
     required TResult Function(SaveOrUnSaveArticleAction value) saveOrUnSave,
     required TResult Function(ShareOrUnShareArticleAction value) shareOrUnShare,
+    required TResult Function(SaveStatusAction value) saveStatusChanged,
+    required TResult Function(ShareStatusAction value) shareStatusChanged,
     required TResult Function(ErrorUpdateAction value) error,
   }) {
     return error(this);
@@ -478,6 +846,8 @@ class _$ErrorUpdateAction implements ErrorUpdateAction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
     TResult? Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult? Function(SaveStatusAction value)? saveStatusChanged,
+    TResult? Function(ShareStatusAction value)? shareStatusChanged,
     TResult? Function(ErrorUpdateAction value)? error,
   }) {
     return error?.call(this);
@@ -488,6 +858,8 @@ class _$ErrorUpdateAction implements ErrorUpdateAction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveOrUnSaveArticleAction value)? saveOrUnSave,
     TResult Function(ShareOrUnShareArticleAction value)? shareOrUnShare,
+    TResult Function(SaveStatusAction value)? saveStatusChanged,
+    TResult Function(ShareStatusAction value)? shareStatusChanged,
     TResult Function(ErrorUpdateAction value)? error,
     required TResult orElse(),
   }) {
