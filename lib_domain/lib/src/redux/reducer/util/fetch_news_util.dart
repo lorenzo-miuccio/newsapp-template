@@ -1,28 +1,26 @@
-import 'package:domain/src/blocs/news_fetch/news_fetch_state.dart';
 import 'package:domain/src/check_data_validity.dart';
 import 'package:domain/src/entity/article.dart';
 import 'package:domain/src/entity/either.dart';
 import 'package:domain/src/error/data_error.dart';
-import 'package:domain/src/redux/actions/topnews_actions.dart';
+import 'package:domain/src/redux/actions/news_actions.dart';
 import 'package:domain/src/repository/news_repository.dart';
 
 extension _DataErrorToAction on DataError {
-  NewsFetchState toNewsAction() => maybeWhen(
-    noConnection: () => const TopNewsActions.,
-    orElse: () => const NewsFetchState.error(),
+  NewsActions toNewsAction({required bool top}) => maybeWhen(
+    orElse: () => NewsActions.error(top: top),
   );
 }
 
 
-TopNewsActions getAction(Either<DataError, List<Article>> either, {bool remoteErr = false}) {
-  late TopNewsActions action;
-  either.fold((dataErr) => action = dataErr.toNewsAction(), (news) =>
-  stateToEmit = NewsFetchState.hasData(articles: news, validity: !remoteErr, freshness: true));
+NewsActions getAction(Either<DataError, List<Article>> either, {bool remoteErr = false, required bool top}) {
+  late NewsActions action;
+  either.fold((dataErr) => action = dataErr.toNewsAction(top: top), (news) =>
+  action = NewsActions.loadedNewsAction(top: top, articles: news, validity: !remoteErr, freshness: true);
 
-  return stateToEmit!;
+  return action;
 }
 
-Future<NewsFetchState> fetchNews(NewsRepository newsRepo,
+Future<NewsActions> fetchNews(NewsRepository newsRepo,
     {required bool isTop, bool forceRemoteFetch = false, void Function()? suggestRefresh, String? country}) async {
 
   final DateTime? lastFetch = await newsRepo.getLastRemoteFetch();
@@ -42,5 +40,5 @@ Future<NewsFetchState> fetchNews(NewsRepository newsRepo,
 
   return newsRepo
       .getLocalNews(isTop: isTop)
-      .then((value) => getAction(value, remoteErr: remoteFetchError));
+      .then((value) => getAction(value, remoteErr: remoteFetchError, top: isTop));
 }

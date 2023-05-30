@@ -5,7 +5,7 @@ import 'package:domain/src/blocs/news_fetch/util/news_cubit_extension.dart';
 import 'package:domain/src/blocs/news_fetch/news_fetch_state.dart';
 import 'package:domain/src/repository/news_repository.dart';
 
-class TopNewsCubit extends Cubit<NewsFetchState> with NewsCubitMixin {
+class TopNewsCubit extends Cubit<NewsFetchState> with NewsMiddlewareMixin {
   final NewsRepository _newsRepository;
 
   Timer? _timer;
