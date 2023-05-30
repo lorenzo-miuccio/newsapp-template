@@ -3,7 +3,6 @@ import 'dart:async';
 
 import 'package:domain/src/redux/actions/news_actions.dart';
 import 'package:domain/src/redux/app_state.dart';
-import 'package:domain/src/redux/reducer/util/fetch_news_util.dart';
 import 'package:domain/src/redux/util/middleware_mixin.dart';
 import 'package:domain/src/repository/news_repository.dart';
 import 'package:redux/redux.dart';

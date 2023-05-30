@@ -6,15 +6,15 @@ part 'news_actions.freezed.dart';
 @freezed
 class NewsActions with _$NewsActions {
   const factory NewsActions.loadNewsAction(
-      {required bool top, @Default(false) bool forceRemoteFetch, String? country}) = _LoadNewsAction;
+      {required bool top, @Default(false) bool forceRemoteFetch, String? country}) = LoadNewsAction;
 
-  const factory NewsActions.loadingNewsAction({required bool top}) = _LoadingNewsAction;
+  const factory NewsActions.loadingNewsAction({required bool top}) = LoadingNewsAction;
 
   const factory NewsActions.loadedNewsAction(
       {required bool top,
       required List<Article> articles,
       required bool validity,
-      required bool freshness}) = _LoadedNewsActions;
+      required bool freshness}) = LoadedNewsAction;
 
-  const factory NewsActions.error({String? message, required bool top}) = _ErrorNewsActions;
+  const factory NewsActions.error({String? message, required bool top}) = ErrorNewsAction;
 }

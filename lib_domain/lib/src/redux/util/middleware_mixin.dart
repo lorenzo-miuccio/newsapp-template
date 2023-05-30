@@ -8,7 +8,7 @@ import 'package:domain/src/repository/news_repository.dart';
 
 extension _DataErrorNewsActionExtension on DataError {
   NewsActions toNewsAction({required bool top}) => maybeWhen(
-    orElse: () => const NewsActions.error(top: true),
+    orElse: () => NewsActions.error(top: top),
   );
 }
 

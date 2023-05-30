@@ -12,7 +12,7 @@ Future<void> run(Env env) async {
   await DependencyRegistry.registerDependencies(env);
   runApp(const App());
 
-  final store = Store<int>(counterReducer, initialState: 0);
+  final store = Store<AppState>(counterReducer, initialState: 0);
 
   runApp(FlutterReduxApp(
     title: 'Flutter Redux Demo',

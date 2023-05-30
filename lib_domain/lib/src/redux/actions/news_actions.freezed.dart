@@ -53,26 +53,26 @@ mixin _$NewsActions {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadNewsAction value) loadNewsAction,
-    required TResult Function(_LoadingNewsAction value) loadingNewsAction,
-    required TResult Function(_LoadedNewsActions value) loadedNewsAction,
-    required TResult Function(_ErrorNewsActions value) error,
+    required TResult Function(LoadNewsAction value) loadNewsAction,
+    required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(LoadedNewsAction value) loadedNewsAction,
+    required TResult Function(ErrorNewsAction value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadNewsAction value)? loadNewsAction,
-    TResult? Function(_LoadingNewsAction value)? loadingNewsAction,
-    TResult? Function(_LoadedNewsActions value)? loadedNewsAction,
-    TResult? Function(_ErrorNewsActions value)? error,
+    TResult? Function(LoadNewsAction value)? loadNewsAction,
+    TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult? Function(ErrorNewsAction value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadNewsAction value)? loadNewsAction,
-    TResult Function(_LoadingNewsAction value)? loadingNewsAction,
-    TResult Function(_LoadedNewsActions value)? loadedNewsAction,
-    TResult Function(_ErrorNewsActions value)? error,
+    TResult Function(LoadNewsAction value)? loadNewsAction,
+    TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult Function(ErrorNewsAction value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,22 +116,22 @@ class _$NewsActionsCopyWithImpl<$Res, $Val extends NewsActions>
 }
 
 /// @nodoc
-abstract class _$$_LoadNewsActionCopyWith<$Res>
+abstract class _$$LoadNewsActionCopyWith<$Res>
     implements $NewsActionsCopyWith<$Res> {
-  factory _$$_LoadNewsActionCopyWith(
-          _$_LoadNewsAction value, $Res Function(_$_LoadNewsAction) then) =
-      __$$_LoadNewsActionCopyWithImpl<$Res>;
+  factory _$$LoadNewsActionCopyWith(
+          _$LoadNewsAction value, $Res Function(_$LoadNewsAction) then) =
+      __$$LoadNewsActionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool top, bool forceRemoteFetch, String? country});
 }
 
 /// @nodoc
-class __$$_LoadNewsActionCopyWithImpl<$Res>
-    extends _$NewsActionsCopyWithImpl<$Res, _$_LoadNewsAction>
-    implements _$$_LoadNewsActionCopyWith<$Res> {
-  __$$_LoadNewsActionCopyWithImpl(
-      _$_LoadNewsAction _value, $Res Function(_$_LoadNewsAction) _then)
+class __$$LoadNewsActionCopyWithImpl<$Res>
+    extends _$NewsActionsCopyWithImpl<$Res, _$LoadNewsAction>
+    implements _$$LoadNewsActionCopyWith<$Res> {
+  __$$LoadNewsActionCopyWithImpl(
+      _$LoadNewsAction _value, $Res Function(_$LoadNewsAction) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -141,7 +141,7 @@ class __$$_LoadNewsActionCopyWithImpl<$Res>
     Object? forceRemoteFetch = null,
     Object? country = freezed,
   }) {
-    return _then(_$_LoadNewsAction(
+    return _then(_$LoadNewsAction(
       top: null == top
           ? _value.top
           : top // ignore: cast_nullable_to_non_nullable
@@ -160,8 +160,8 @@ class __$$_LoadNewsActionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadNewsAction implements _LoadNewsAction {
-  const _$_LoadNewsAction(
+class _$LoadNewsAction implements LoadNewsAction {
+  const _$LoadNewsAction(
       {required this.top, this.forceRemoteFetch = false, this.country});
 
   @override
@@ -181,7 +181,7 @@ class _$_LoadNewsAction implements _LoadNewsAction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadNewsAction &&
+            other is _$LoadNewsAction &&
             (identical(other.top, top) || other.top == top) &&
             (identical(other.forceRemoteFetch, forceRemoteFetch) ||
                 other.forceRemoteFetch == forceRemoteFetch) &&
@@ -194,8 +194,8 @@ class _$_LoadNewsAction implements _LoadNewsAction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadNewsActionCopyWith<_$_LoadNewsAction> get copyWith =>
-      __$$_LoadNewsActionCopyWithImpl<_$_LoadNewsAction>(this, _$identity);
+  _$$LoadNewsActionCopyWith<_$LoadNewsAction> get copyWith =>
+      __$$LoadNewsActionCopyWithImpl<_$LoadNewsAction>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -246,10 +246,10 @@ class _$_LoadNewsAction implements _LoadNewsAction {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadNewsAction value) loadNewsAction,
-    required TResult Function(_LoadingNewsAction value) loadingNewsAction,
-    required TResult Function(_LoadedNewsActions value) loadedNewsAction,
-    required TResult Function(_ErrorNewsActions value) error,
+    required TResult Function(LoadNewsAction value) loadNewsAction,
+    required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(LoadedNewsAction value) loadedNewsAction,
+    required TResult Function(ErrorNewsAction value) error,
   }) {
     return loadNewsAction(this);
   }
@@ -257,10 +257,10 @@ class _$_LoadNewsAction implements _LoadNewsAction {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadNewsAction value)? loadNewsAction,
-    TResult? Function(_LoadingNewsAction value)? loadingNewsAction,
-    TResult? Function(_LoadedNewsActions value)? loadedNewsAction,
-    TResult? Function(_ErrorNewsActions value)? error,
+    TResult? Function(LoadNewsAction value)? loadNewsAction,
+    TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult? Function(ErrorNewsAction value)? error,
   }) {
     return loadNewsAction?.call(this);
   }
@@ -268,10 +268,10 @@ class _$_LoadNewsAction implements _LoadNewsAction {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadNewsAction value)? loadNewsAction,
-    TResult Function(_LoadingNewsAction value)? loadingNewsAction,
-    TResult Function(_LoadedNewsActions value)? loadedNewsAction,
-    TResult Function(_ErrorNewsActions value)? error,
+    TResult Function(LoadNewsAction value)? loadNewsAction,
+    TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult Function(ErrorNewsAction value)? error,
     required TResult orElse(),
   }) {
     if (loadNewsAction != null) {
@@ -281,11 +281,11 @@ class _$_LoadNewsAction implements _LoadNewsAction {
   }
 }
 
-abstract class _LoadNewsAction implements NewsActions {
-  const factory _LoadNewsAction(
+abstract class LoadNewsAction implements NewsActions {
+  const factory LoadNewsAction(
       {required final bool top,
       final bool forceRemoteFetch,
-      final String? country}) = _$_LoadNewsAction;
+      final String? country}) = _$LoadNewsAction;
 
   @override
   bool get top;
@@ -293,27 +293,27 @@ abstract class _LoadNewsAction implements NewsActions {
   String? get country;
   @override
   @JsonKey(ignore: true)
-  _$$_LoadNewsActionCopyWith<_$_LoadNewsAction> get copyWith =>
+  _$$LoadNewsActionCopyWith<_$LoadNewsAction> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadingNewsActionCopyWith<$Res>
+abstract class _$$LoadingNewsActionCopyWith<$Res>
     implements $NewsActionsCopyWith<$Res> {
-  factory _$$_LoadingNewsActionCopyWith(_$_LoadingNewsAction value,
-          $Res Function(_$_LoadingNewsAction) then) =
-      __$$_LoadingNewsActionCopyWithImpl<$Res>;
+  factory _$$LoadingNewsActionCopyWith(
+          _$LoadingNewsAction value, $Res Function(_$LoadingNewsAction) then) =
+      __$$LoadingNewsActionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool top});
 }
 
 /// @nodoc
-class __$$_LoadingNewsActionCopyWithImpl<$Res>
-    extends _$NewsActionsCopyWithImpl<$Res, _$_LoadingNewsAction>
-    implements _$$_LoadingNewsActionCopyWith<$Res> {
-  __$$_LoadingNewsActionCopyWithImpl(
-      _$_LoadingNewsAction _value, $Res Function(_$_LoadingNewsAction) _then)
+class __$$LoadingNewsActionCopyWithImpl<$Res>
+    extends _$NewsActionsCopyWithImpl<$Res, _$LoadingNewsAction>
+    implements _$$LoadingNewsActionCopyWith<$Res> {
+  __$$LoadingNewsActionCopyWithImpl(
+      _$LoadingNewsAction _value, $Res Function(_$LoadingNewsAction) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -321,7 +321,7 @@ class __$$_LoadingNewsActionCopyWithImpl<$Res>
   $Res call({
     Object? top = null,
   }) {
-    return _then(_$_LoadingNewsAction(
+    return _then(_$LoadingNewsAction(
       top: null == top
           ? _value.top
           : top // ignore: cast_nullable_to_non_nullable
@@ -332,8 +332,8 @@ class __$$_LoadingNewsActionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadingNewsAction implements _LoadingNewsAction {
-  const _$_LoadingNewsAction({required this.top});
+class _$LoadingNewsAction implements LoadingNewsAction {
+  const _$LoadingNewsAction({required this.top});
 
   @override
   final bool top;
@@ -347,7 +347,7 @@ class _$_LoadingNewsAction implements _LoadingNewsAction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadingNewsAction &&
+            other is _$LoadingNewsAction &&
             (identical(other.top, top) || other.top == top));
   }
 
@@ -357,9 +357,8 @@ class _$_LoadingNewsAction implements _LoadingNewsAction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadingNewsActionCopyWith<_$_LoadingNewsAction> get copyWith =>
-      __$$_LoadingNewsActionCopyWithImpl<_$_LoadingNewsAction>(
-          this, _$identity);
+  _$$LoadingNewsActionCopyWith<_$LoadingNewsAction> get copyWith =>
+      __$$LoadingNewsActionCopyWithImpl<_$LoadingNewsAction>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -410,10 +409,10 @@ class _$_LoadingNewsAction implements _LoadingNewsAction {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadNewsAction value) loadNewsAction,
-    required TResult Function(_LoadingNewsAction value) loadingNewsAction,
-    required TResult Function(_LoadedNewsActions value) loadedNewsAction,
-    required TResult Function(_ErrorNewsActions value) error,
+    required TResult Function(LoadNewsAction value) loadNewsAction,
+    required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(LoadedNewsAction value) loadedNewsAction,
+    required TResult Function(ErrorNewsAction value) error,
   }) {
     return loadingNewsAction(this);
   }
@@ -421,10 +420,10 @@ class _$_LoadingNewsAction implements _LoadingNewsAction {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadNewsAction value)? loadNewsAction,
-    TResult? Function(_LoadingNewsAction value)? loadingNewsAction,
-    TResult? Function(_LoadedNewsActions value)? loadedNewsAction,
-    TResult? Function(_ErrorNewsActions value)? error,
+    TResult? Function(LoadNewsAction value)? loadNewsAction,
+    TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult? Function(ErrorNewsAction value)? error,
   }) {
     return loadingNewsAction?.call(this);
   }
@@ -432,10 +431,10 @@ class _$_LoadingNewsAction implements _LoadingNewsAction {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadNewsAction value)? loadNewsAction,
-    TResult Function(_LoadingNewsAction value)? loadingNewsAction,
-    TResult Function(_LoadedNewsActions value)? loadedNewsAction,
-    TResult Function(_ErrorNewsActions value)? error,
+    TResult Function(LoadNewsAction value)? loadNewsAction,
+    TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult Function(ErrorNewsAction value)? error,
     required TResult orElse(),
   }) {
     if (loadingNewsAction != null) {
@@ -445,35 +444,35 @@ class _$_LoadingNewsAction implements _LoadingNewsAction {
   }
 }
 
-abstract class _LoadingNewsAction implements NewsActions {
-  const factory _LoadingNewsAction({required final bool top}) =
-      _$_LoadingNewsAction;
+abstract class LoadingNewsAction implements NewsActions {
+  const factory LoadingNewsAction({required final bool top}) =
+      _$LoadingNewsAction;
 
   @override
   bool get top;
   @override
   @JsonKey(ignore: true)
-  _$$_LoadingNewsActionCopyWith<_$_LoadingNewsAction> get copyWith =>
+  _$$LoadingNewsActionCopyWith<_$LoadingNewsAction> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadedNewsActionsCopyWith<$Res>
+abstract class _$$LoadedNewsActionCopyWith<$Res>
     implements $NewsActionsCopyWith<$Res> {
-  factory _$$_LoadedNewsActionsCopyWith(_$_LoadedNewsActions value,
-          $Res Function(_$_LoadedNewsActions) then) =
-      __$$_LoadedNewsActionsCopyWithImpl<$Res>;
+  factory _$$LoadedNewsActionCopyWith(
+          _$LoadedNewsAction value, $Res Function(_$LoadedNewsAction) then) =
+      __$$LoadedNewsActionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool top, List<Article> articles, bool validity, bool freshness});
 }
 
 /// @nodoc
-class __$$_LoadedNewsActionsCopyWithImpl<$Res>
-    extends _$NewsActionsCopyWithImpl<$Res, _$_LoadedNewsActions>
-    implements _$$_LoadedNewsActionsCopyWith<$Res> {
-  __$$_LoadedNewsActionsCopyWithImpl(
-      _$_LoadedNewsActions _value, $Res Function(_$_LoadedNewsActions) _then)
+class __$$LoadedNewsActionCopyWithImpl<$Res>
+    extends _$NewsActionsCopyWithImpl<$Res, _$LoadedNewsAction>
+    implements _$$LoadedNewsActionCopyWith<$Res> {
+  __$$LoadedNewsActionCopyWithImpl(
+      _$LoadedNewsAction _value, $Res Function(_$LoadedNewsAction) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -484,7 +483,7 @@ class __$$_LoadedNewsActionsCopyWithImpl<$Res>
     Object? validity = null,
     Object? freshness = null,
   }) {
-    return _then(_$_LoadedNewsActions(
+    return _then(_$LoadedNewsAction(
       top: null == top
           ? _value.top
           : top // ignore: cast_nullable_to_non_nullable
@@ -507,8 +506,8 @@ class __$$_LoadedNewsActionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadedNewsActions implements _LoadedNewsActions {
-  const _$_LoadedNewsActions(
+class _$LoadedNewsAction implements LoadedNewsAction {
+  const _$LoadedNewsAction(
       {required this.top,
       required final List<Article> articles,
       required this.validity,
@@ -539,7 +538,7 @@ class _$_LoadedNewsActions implements _LoadedNewsActions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadedNewsActions &&
+            other is _$LoadedNewsAction &&
             (identical(other.top, top) || other.top == top) &&
             const DeepCollectionEquality().equals(other._articles, _articles) &&
             (identical(other.validity, validity) ||
@@ -555,9 +554,8 @@ class _$_LoadedNewsActions implements _LoadedNewsActions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadedNewsActionsCopyWith<_$_LoadedNewsActions> get copyWith =>
-      __$$_LoadedNewsActionsCopyWithImpl<_$_LoadedNewsActions>(
-          this, _$identity);
+  _$$LoadedNewsActionCopyWith<_$LoadedNewsAction> get copyWith =>
+      __$$LoadedNewsActionCopyWithImpl<_$LoadedNewsAction>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -608,10 +606,10 @@ class _$_LoadedNewsActions implements _LoadedNewsActions {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadNewsAction value) loadNewsAction,
-    required TResult Function(_LoadingNewsAction value) loadingNewsAction,
-    required TResult Function(_LoadedNewsActions value) loadedNewsAction,
-    required TResult Function(_ErrorNewsActions value) error,
+    required TResult Function(LoadNewsAction value) loadNewsAction,
+    required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(LoadedNewsAction value) loadedNewsAction,
+    required TResult Function(ErrorNewsAction value) error,
   }) {
     return loadedNewsAction(this);
   }
@@ -619,10 +617,10 @@ class _$_LoadedNewsActions implements _LoadedNewsActions {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadNewsAction value)? loadNewsAction,
-    TResult? Function(_LoadingNewsAction value)? loadingNewsAction,
-    TResult? Function(_LoadedNewsActions value)? loadedNewsAction,
-    TResult? Function(_ErrorNewsActions value)? error,
+    TResult? Function(LoadNewsAction value)? loadNewsAction,
+    TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult? Function(ErrorNewsAction value)? error,
   }) {
     return loadedNewsAction?.call(this);
   }
@@ -630,10 +628,10 @@ class _$_LoadedNewsActions implements _LoadedNewsActions {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadNewsAction value)? loadNewsAction,
-    TResult Function(_LoadingNewsAction value)? loadingNewsAction,
-    TResult Function(_LoadedNewsActions value)? loadedNewsAction,
-    TResult Function(_ErrorNewsActions value)? error,
+    TResult Function(LoadNewsAction value)? loadNewsAction,
+    TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult Function(ErrorNewsAction value)? error,
     required TResult orElse(),
   }) {
     if (loadedNewsAction != null) {
@@ -643,12 +641,12 @@ class _$_LoadedNewsActions implements _LoadedNewsActions {
   }
 }
 
-abstract class _LoadedNewsActions implements NewsActions {
-  const factory _LoadedNewsActions(
+abstract class LoadedNewsAction implements NewsActions {
+  const factory LoadedNewsAction(
       {required final bool top,
       required final List<Article> articles,
       required final bool validity,
-      required final bool freshness}) = _$_LoadedNewsActions;
+      required final bool freshness}) = _$LoadedNewsAction;
 
   @override
   bool get top;
@@ -657,27 +655,27 @@ abstract class _LoadedNewsActions implements NewsActions {
   bool get freshness;
   @override
   @JsonKey(ignore: true)
-  _$$_LoadedNewsActionsCopyWith<_$_LoadedNewsActions> get copyWith =>
+  _$$LoadedNewsActionCopyWith<_$LoadedNewsAction> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ErrorNewsActionsCopyWith<$Res>
+abstract class _$$ErrorNewsActionCopyWith<$Res>
     implements $NewsActionsCopyWith<$Res> {
-  factory _$$_ErrorNewsActionsCopyWith(
-          _$_ErrorNewsActions value, $Res Function(_$_ErrorNewsActions) then) =
-      __$$_ErrorNewsActionsCopyWithImpl<$Res>;
+  factory _$$ErrorNewsActionCopyWith(
+          _$ErrorNewsAction value, $Res Function(_$ErrorNewsAction) then) =
+      __$$ErrorNewsActionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message, bool top});
 }
 
 /// @nodoc
-class __$$_ErrorNewsActionsCopyWithImpl<$Res>
-    extends _$NewsActionsCopyWithImpl<$Res, _$_ErrorNewsActions>
-    implements _$$_ErrorNewsActionsCopyWith<$Res> {
-  __$$_ErrorNewsActionsCopyWithImpl(
-      _$_ErrorNewsActions _value, $Res Function(_$_ErrorNewsActions) _then)
+class __$$ErrorNewsActionCopyWithImpl<$Res>
+    extends _$NewsActionsCopyWithImpl<$Res, _$ErrorNewsAction>
+    implements _$$ErrorNewsActionCopyWith<$Res> {
+  __$$ErrorNewsActionCopyWithImpl(
+      _$ErrorNewsAction _value, $Res Function(_$ErrorNewsAction) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -686,7 +684,7 @@ class __$$_ErrorNewsActionsCopyWithImpl<$Res>
     Object? message = freezed,
     Object? top = null,
   }) {
-    return _then(_$_ErrorNewsActions(
+    return _then(_$ErrorNewsAction(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -701,8 +699,8 @@ class __$$_ErrorNewsActionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ErrorNewsActions implements _ErrorNewsActions {
-  const _$_ErrorNewsActions({this.message, required this.top});
+class _$ErrorNewsAction implements ErrorNewsAction {
+  const _$ErrorNewsAction({this.message, required this.top});
 
   @override
   final String? message;
@@ -718,7 +716,7 @@ class _$_ErrorNewsActions implements _ErrorNewsActions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ErrorNewsActions &&
+            other is _$ErrorNewsAction &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.top, top) || other.top == top));
   }
@@ -729,8 +727,8 @@ class _$_ErrorNewsActions implements _ErrorNewsActions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ErrorNewsActionsCopyWith<_$_ErrorNewsActions> get copyWith =>
-      __$$_ErrorNewsActionsCopyWithImpl<_$_ErrorNewsActions>(this, _$identity);
+  _$$ErrorNewsActionCopyWith<_$ErrorNewsAction> get copyWith =>
+      __$$ErrorNewsActionCopyWithImpl<_$ErrorNewsAction>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -781,10 +779,10 @@ class _$_ErrorNewsActions implements _ErrorNewsActions {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadNewsAction value) loadNewsAction,
-    required TResult Function(_LoadingNewsAction value) loadingNewsAction,
-    required TResult Function(_LoadedNewsActions value) loadedNewsAction,
-    required TResult Function(_ErrorNewsActions value) error,
+    required TResult Function(LoadNewsAction value) loadNewsAction,
+    required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(LoadedNewsAction value) loadedNewsAction,
+    required TResult Function(ErrorNewsAction value) error,
   }) {
     return error(this);
   }
@@ -792,10 +790,10 @@ class _$_ErrorNewsActions implements _ErrorNewsActions {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadNewsAction value)? loadNewsAction,
-    TResult? Function(_LoadingNewsAction value)? loadingNewsAction,
-    TResult? Function(_LoadedNewsActions value)? loadedNewsAction,
-    TResult? Function(_ErrorNewsActions value)? error,
+    TResult? Function(LoadNewsAction value)? loadNewsAction,
+    TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult? Function(ErrorNewsAction value)? error,
   }) {
     return error?.call(this);
   }
@@ -803,10 +801,10 @@ class _$_ErrorNewsActions implements _ErrorNewsActions {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadNewsAction value)? loadNewsAction,
-    TResult Function(_LoadingNewsAction value)? loadingNewsAction,
-    TResult Function(_LoadedNewsActions value)? loadedNewsAction,
-    TResult Function(_ErrorNewsActions value)? error,
+    TResult Function(LoadNewsAction value)? loadNewsAction,
+    TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult Function(ErrorNewsAction value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -816,15 +814,15 @@ class _$_ErrorNewsActions implements _ErrorNewsActions {
   }
 }
 
-abstract class _ErrorNewsActions implements NewsActions {
-  const factory _ErrorNewsActions(
-      {final String? message, required final bool top}) = _$_ErrorNewsActions;
+abstract class ErrorNewsAction implements NewsActions {
+  const factory ErrorNewsAction(
+      {final String? message, required final bool top}) = _$ErrorNewsAction;
 
   String? get message;
   @override
   bool get top;
   @override
   @JsonKey(ignore: true)
-  _$$_ErrorNewsActionsCopyWith<_$_ErrorNewsActions> get copyWith =>
+  _$$ErrorNewsActionCopyWith<_$ErrorNewsAction> get copyWith =>
       throw _privateConstructorUsedError;
 }
