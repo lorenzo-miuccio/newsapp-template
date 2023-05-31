@@ -1,5 +1,6 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:newsapp/config/dependencies/dependecies.dart';
 import 'package:newsapp/config/theme.dart';
 import 'package:newsapp/ui/screens/article/article_screen.dart';
@@ -13,16 +14,19 @@ import 'package:newsapp/utils/language_to_locale.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:redux/redux.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  final Store<AppState> store;
+
+  const App({required this.store, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SettingsCubit>(
-      create: (_) => readDR(),
-      child: BlocBuilder<SettingsCubit, Settings>(
+    return StoreProvider<AppState>(
+      store: store,
+      child: StoreConnector<AppState, Settings>(
+        converter: (store) => store.state.settingsState,
         builder: (ctx, settingState) => MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'News App',

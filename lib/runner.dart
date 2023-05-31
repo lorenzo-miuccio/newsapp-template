@@ -1,6 +1,7 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:get_it/get_it.dart';
 import 'package:newsapp/config/dependencies/dependecies.dart';
 import 'package:newsapp/config/env.dart';
 import 'package:newsapp/ui/app.dart';
@@ -11,8 +12,12 @@ Future<void> run(Env env) async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await DependencyRegistry.registerDependencies(env);
-  final store = Store<AppState>(appReducer, initialState: AppState.initialState());
 
+  final middlewares = createMiddlewares(readDR(), readDR());
+  final store =
+  Store<AppState>(appReducer, initialState: AppState.initialState(), middleware: middlewares);
 
-  runApp(const App());
+  runApp(App(
+    store: store,
+  ));
 }

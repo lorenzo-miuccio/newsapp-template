@@ -2,10 +2,10 @@ import 'package:domain/domain.dart';
 import 'package:domain/src/redux/actions/article_update_actions.dart';
 import 'package:redux/redux.dart';
 
-class TopNewsMiddleware implements MiddlewareClass<AppState> {
+class UpdateArticleMIddleWare implements MiddlewareClass<AppState> {
   final NewsRepository _newsRepo;
 
-  TopNewsMiddleware(this._newsRepo);
+  UpdateArticleMIddleWare(this._newsRepo);
 
   @override
   call(Store<AppState> store, action, NextDispatcher next) {

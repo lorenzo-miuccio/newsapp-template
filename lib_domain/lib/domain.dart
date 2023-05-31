@@ -16,6 +16,8 @@ export 'src/blocs/settings/locale_bloc.dart';
 export 'src/blocs/settings/settings.dart';
 export 'src/redux/app_state.dart';
 export 'src/redux/reducers/app_reducer.dart';
+export 'src/redux/middlewares/create_middlewares.dart';
+export 'src/redux/middlewares/news_middleware.dart';
 
 
 
