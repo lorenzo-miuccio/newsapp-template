@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:newsapp/ui/app.dart';
 import 'package:newsapp/ui/screens/news_home/widgets/custom_appbar.dart';
 import 'package:newsapp/ui/screens/common_widgets/drawer/app_drawer.dart';
 import 'package:newsapp/ui/screens/news_home/widgets/everything_section.dart';
 import 'package:newsapp/ui/screens/news_home/widgets/news_header.dart';
 import 'package:newsapp/ui/screens/news_home/widgets/top_headlines_section.dart';
 import 'package:newsapp/utils/language_to_locale.dart';
+import 'package:redux/redux.dart';
 
 class NewsScreen extends StatefulWidget {
   const NewsScreen({Key? key}) : super(key: key);
@@ -35,8 +38,10 @@ class _NewsScreenState extends State<NewsScreen> {
   }
 
   void _refreshNews({bool forceRemoteFetch = false}) {
-    final refreshNewsUS = RefreshNewsUS(context.read(), context.read());
-    refreshNewsUS(context.read<SettingsCubit>().state.language.getCountryId(), forceRemoteFetch: forceRemoteFetch);
+    final store = StoreProvider.of<AppState>(context);
+
+    final refreshNewsUS = RefreshNewsUS(store);
+    refreshNewsUS(store.state.settingsState.language.getCountryId(), forceRemoteFetch: forceRemoteFetch);
   }
 
   void _searchForArticles() {
@@ -64,9 +69,12 @@ class _NewsScreenState extends State<NewsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SettingsCubit, Settings>(
-      listener: (ctx, localeState) => _refreshNews(forceRemoteFetch: true),
-      child: Scaffold(
+    return StoreConnector<AppState, String>(
+      // listener: (ctx, localeState) => _refreshNews(forceRemoteFetch: true),
+      converter: (store) => store.state.settingsState.language.getCountryId(),
+      distinct: true,
+      onWillChange:  (previousVm, newVm) => _refreshNews(forceRemoteFetch: true),
+      builder: (context, countryId) => Scaffold(
         appBar: CustomAppbar(
           checkTextInput: _checkTextInput,
           searchBarController: _searchBarController,

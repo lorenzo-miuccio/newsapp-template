@@ -18,6 +18,9 @@ export 'src/redux/app_state.dart';
 export 'src/redux/reducers/app_reducer.dart';
 export 'src/redux/middlewares/create_middlewares.dart';
 export 'src/redux/middlewares/news_middleware.dart';
+export 'src/redux/actions/news_actions.dart';
+export 'src/redux/actions/settings_actions.dart';
+export 'src/redux/actions/article_update_actions.dart';
 
 
 

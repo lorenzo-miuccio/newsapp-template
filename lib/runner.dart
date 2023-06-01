@@ -14,8 +14,7 @@ Future<void> run(Env env) async {
   await DependencyRegistry.registerDependencies(env);
 
   final middlewares = createMiddlewares(readDR(), readDR());
-  final store =
-  Store<AppState>(appReducer, initialState: AppState.initialState(), middleware: middlewares);
+  final store = Store<AppState>(appReducer, initialState: AppState.initialState(readDR()), middleware: middlewares);
 
   runApp(App(
     store: store,

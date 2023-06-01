@@ -6,6 +6,7 @@ import 'package:newsapp/config/theme.dart';
 import 'package:newsapp/ui/screens/article/article_screen.dart';
 import 'package:newsapp/ui/screens/article/article_screen_connector.dart';
 import 'package:newsapp/ui/screens/common_widgets/drawer/app_drawer.dart';
+import 'package:newsapp/ui/screens/news_home/news_screen.dart';
 import 'package:newsapp/ui/screens/news_home/news_screen_connector.dart';
 import 'package:newsapp/ui/screens/saved_shared/saved_shared_connector.dart';
 import 'package:newsapp/ui/screens/saved_shared/saved_shared_screen.dart';
@@ -42,7 +43,7 @@ class App extends StatelessWidget {
           locale: settingState.language.locale,
           supportedLocales: Language.values.map((e) => e.locale),
           routes: {
-            '/': (_) => const NewsScreenConnector(),
+            '/': (_) => const NewsScreen(),
             SavedSharedScreen.sharedRouteName: (_) => const SavedSharedScreenConnector(AppScreen.shared),
             SavedSharedScreen.savedRouteName: (_) => const SavedSharedScreenConnector(AppScreen.saved),
             SettingsScreen.routeName: (_) => const SettingsScreen(),
