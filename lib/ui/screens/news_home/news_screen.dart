@@ -38,7 +38,7 @@ class _NewsScreenState extends State<NewsScreen> {
   }
 
   void _refreshNews({bool forceRemoteFetch = false}) {
-    final store = StoreProvider.of<AppState>(context);
+    final store = StoreProvider.of<AppState>(context, listen: false);
 
     final refreshNewsUS = RefreshNewsUS(store);
     refreshNewsUS(store.state.settingsState.language.getCountryId(), forceRemoteFetch: forceRemoteFetch);

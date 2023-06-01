@@ -1,6 +1,7 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:newsapp/ui/screens/common_widgets/error_widgets/generic_error.dart';
 import 'package:newsapp/ui/screens/common_widgets/loading_widget.dart';
 import 'package:newsapp/ui/screens/news_home/widgets/article_item.dart';
@@ -21,7 +22,8 @@ class EverythingSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
-    return BlocBuilder<EveryThingNewsCubit, NewsFetchState>(
+    return StoreConnector<AppState, NewsFetchState>(
+      converter: (store) => store.state.everyThingNewsState,
       builder: (ctx, state) {
         return state.maybeWhen(
           hasData: (articles, _, __) {

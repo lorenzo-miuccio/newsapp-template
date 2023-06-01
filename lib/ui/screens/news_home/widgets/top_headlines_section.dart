@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:newsapp/ui/screens/common_widgets/error_widgets/generic_error.dart';
 import 'package:newsapp/ui/screens/common_widgets/loading_widget.dart';
 import 'package:newsapp/ui/screens/news_home/widgets/headline_item.dart';
@@ -40,8 +41,10 @@ class _TopHeadlinesSectionState extends State<TopHeadlinesSection> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TopNewsCubit, NewsFetchState>(
-      listener: (ctx, state) => state.whenOrNull(
+    return StoreConnector<AppState, NewsFetchState>(
+      converter: (store) => store.state.topNewsState,
+      distinct: true,
+      onDidChange: (previousState, state) => state.whenOrNull(
         hasData: (_, validity, freshness) {
           if ((!validity || !freshness) && ModalRoute.of(context)!.isCurrent) {
             _showSnackBar(validity, freshness);
