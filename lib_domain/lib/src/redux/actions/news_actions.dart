@@ -10,6 +10,8 @@ class NewsActions with _$NewsActions {
 
   const factory NewsActions.loadingNewsAction({required bool top}) = LoadingNewsAction;
 
+  const factory NewsActions.searchNews({required String characters, required String lan}) = SearchNewsAction;
+
   const factory NewsActions.loadedNewsAction(
       {required bool top,
       required List<Article> articles,

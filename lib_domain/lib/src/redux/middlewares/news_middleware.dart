@@ -19,6 +19,11 @@ class NewsMiddleware with NewsMiddlewareMixin implements MiddlewareClass<AppStat
         store.dispatch(NewsActions.loadingNewsAction(top: top));
         fetchNews(_newsRepository, isTop: top, forceRemoteFetch: forceRemoteFetch, country: country)
             .then((value) => store.dispatch(value));
+      }, searchNews: (characters, lan) {
+        store.dispatch(NewsActions.loadingNewsAction(top: false));
+        _newsRepository
+            .searchNewsByCharacters(characters, lan: lan)
+            .then((value) => store.dispatch(getNewsAction(value, top: false)));
       });
     }
     next(action);

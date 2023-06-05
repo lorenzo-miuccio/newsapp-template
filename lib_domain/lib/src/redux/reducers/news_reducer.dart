@@ -4,20 +4,30 @@ import 'package:redux/redux.dart';
 
 final topNewsReducer = combineReducers<NewsFetchState>([
   TypedReducer<NewsFetchState, LoadedNewsAction>(_onLoadTop),
+  TypedReducer<NewsFetchState, LoadingNewsAction>(_onLoadingTop),
 ]);
 
 NewsFetchState _onLoadTop(NewsFetchState fetchState, LoadedNewsAction action) {
   if (action.top) {
     return NewsFetchState.hasData(articles: action.articles, validity: action.validity, freshness: action.freshness);
   }
+  return fetchState;
+}
 
+NewsFetchState _onLoadingTop(NewsFetchState fetchState, LoadingNewsAction action) {
+  if (action.top) {
+    return NewsFetchState.loading();
+  }
   return fetchState;
 }
 
 
 
+
+
 final everythingNewsReducer = combineReducers<NewsFetchState>([
   TypedReducer<NewsFetchState, LoadedNewsAction>(_onLoadEverything),
+  TypedReducer<NewsFetchState, LoadingNewsAction>(_onLoadingEverything),
 ]);
 
 NewsFetchState _onLoadEverything(NewsFetchState fetchState, LoadedNewsAction action) {
@@ -25,5 +35,12 @@ NewsFetchState _onLoadEverything(NewsFetchState fetchState, LoadedNewsAction act
     return NewsFetchState.hasData(articles: action.articles, validity: action.validity, freshness: action.freshness);
   }
 
+  return fetchState;
+}
+
+NewsFetchState _onLoadingEverything(NewsFetchState fetchState, LoadingNewsAction action) {
+  if (!action.top) {
+    return NewsFetchState.loading();
+  }
   return fetchState;
 }

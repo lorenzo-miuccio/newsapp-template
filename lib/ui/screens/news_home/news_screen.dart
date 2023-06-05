@@ -45,9 +45,12 @@ class _NewsScreenState extends State<NewsScreen> {
   }
 
   void _searchForArticles() {
-    context
-        .read<EveryThingNewsCubit>()
-        .searchNews(characters: _searchBarController.text, lan: context.read<SettingsCubit>().state.language.name);
+    final store = StoreProvider.of<AppState>(context);
+    store.dispatch(
+        NewsActions.searchNews(characters: _searchBarController.text, lan: store.state.settingsState.language.name));
+    // context
+    //     .read<EveryThingNewsCubit>()
+    //     .searchNews(characters: _searchBarController.text, lan: context.read<SettingsCubit>().state.language.name);
   }
 
   void _checkTextInput(String input) {
@@ -73,7 +76,7 @@ class _NewsScreenState extends State<NewsScreen> {
       // listener: (ctx, localeState) => _refreshNews(forceRemoteFetch: true),
       converter: (store) => store.state.settingsState.language.getCountryId(),
       distinct: true,
-      onWillChange:  (previousVm, newVm) => _refreshNews(forceRemoteFetch: true),
+      onWillChange: (previousVm, newVm) => _refreshNews(forceRemoteFetch: true),
       builder: (context, countryId) => Scaffold(
         appBar: CustomAppbar(
           checkTextInput: _checkTextInput,

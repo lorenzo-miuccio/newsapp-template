@@ -1,8 +1,8 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:newsapp/ui/screens/settings/settings_screen.dart';
 
 class ChangeLanguageDialog extends StatefulWidget {
@@ -19,7 +19,9 @@ class _ChangeLanguageDialogState extends State<ChangeLanguageDialog> {
   @override
   void initState() {
     super.initState();
-    _currentLocale = context.read<SettingsCubit>().state.language;
+    final store = StoreProvider.of<AppState>(context, listen: false);
+    // _currentLocale = context.read<SettingsCubit>().state.language;
+    _currentLocale = store.state.settingsState.language;
   }
 
   @override

@@ -16,12 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$NewsActions {
-  bool get top => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool top, bool forceRemoteFetch, String? country)
         loadNewsAction,
     required TResult Function(bool top) loadingNewsAction,
+    required TResult Function(String characters, String lan) searchNews,
     required TResult Function(
             bool top, List<Article> articles, bool validity, bool freshness)
         loadedNewsAction,
@@ -33,6 +33,7 @@ mixin _$NewsActions {
     TResult? Function(bool top, bool forceRemoteFetch, String? country)?
         loadNewsAction,
     TResult? Function(bool top)? loadingNewsAction,
+    TResult? Function(String characters, String lan)? searchNews,
     TResult? Function(
             bool top, List<Article> articles, bool validity, bool freshness)?
         loadedNewsAction,
@@ -44,6 +45,7 @@ mixin _$NewsActions {
     TResult Function(bool top, bool forceRemoteFetch, String? country)?
         loadNewsAction,
     TResult Function(bool top)? loadingNewsAction,
+    TResult Function(String characters, String lan)? searchNews,
     TResult Function(
             bool top, List<Article> articles, bool validity, bool freshness)?
         loadedNewsAction,
@@ -55,6 +57,7 @@ mixin _$NewsActions {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadNewsAction value) loadNewsAction,
     required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(SearchNewsAction value) searchNews,
     required TResult Function(LoadedNewsAction value) loadedNewsAction,
     required TResult Function(ErrorNewsAction value) error,
   }) =>
@@ -63,6 +66,7 @@ mixin _$NewsActions {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadNewsAction value)? loadNewsAction,
     TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(SearchNewsAction value)? searchNews,
     TResult? Function(LoadedNewsAction value)? loadedNewsAction,
     TResult? Function(ErrorNewsAction value)? error,
   }) =>
@@ -71,14 +75,11 @@ mixin _$NewsActions {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadNewsAction value)? loadNewsAction,
     TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(SearchNewsAction value)? searchNews,
     TResult Function(LoadedNewsAction value)? loadedNewsAction,
     TResult Function(ErrorNewsAction value)? error,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $NewsActionsCopyWith<NewsActions> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -87,8 +88,6 @@ abstract class $NewsActionsCopyWith<$Res> {
   factory $NewsActionsCopyWith(
           NewsActions value, $Res Function(NewsActions) then) =
       _$NewsActionsCopyWithImpl<$Res, NewsActions>;
-  @useResult
-  $Res call({bool top});
 }
 
 /// @nodoc
@@ -100,28 +99,13 @@ class _$NewsActionsCopyWithImpl<$Res, $Val extends NewsActions>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? top = null,
-  }) {
-    return _then(_value.copyWith(
-      top: null == top
-          ? _value.top
-          : top // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$LoadNewsActionCopyWith<$Res>
-    implements $NewsActionsCopyWith<$Res> {
+abstract class _$$LoadNewsActionCopyWith<$Res> {
   factory _$$LoadNewsActionCopyWith(
           _$LoadNewsAction value, $Res Function(_$LoadNewsAction) then) =
       __$$LoadNewsActionCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({bool top, bool forceRemoteFetch, String? country});
 }
@@ -203,6 +187,7 @@ class _$LoadNewsAction implements LoadNewsAction {
     required TResult Function(bool top, bool forceRemoteFetch, String? country)
         loadNewsAction,
     required TResult Function(bool top) loadingNewsAction,
+    required TResult Function(String characters, String lan) searchNews,
     required TResult Function(
             bool top, List<Article> articles, bool validity, bool freshness)
         loadedNewsAction,
@@ -217,6 +202,7 @@ class _$LoadNewsAction implements LoadNewsAction {
     TResult? Function(bool top, bool forceRemoteFetch, String? country)?
         loadNewsAction,
     TResult? Function(bool top)? loadingNewsAction,
+    TResult? Function(String characters, String lan)? searchNews,
     TResult? Function(
             bool top, List<Article> articles, bool validity, bool freshness)?
         loadedNewsAction,
@@ -231,6 +217,7 @@ class _$LoadNewsAction implements LoadNewsAction {
     TResult Function(bool top, bool forceRemoteFetch, String? country)?
         loadNewsAction,
     TResult Function(bool top)? loadingNewsAction,
+    TResult Function(String characters, String lan)? searchNews,
     TResult Function(
             bool top, List<Article> articles, bool validity, bool freshness)?
         loadedNewsAction,
@@ -248,6 +235,7 @@ class _$LoadNewsAction implements LoadNewsAction {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadNewsAction value) loadNewsAction,
     required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(SearchNewsAction value) searchNews,
     required TResult Function(LoadedNewsAction value) loadedNewsAction,
     required TResult Function(ErrorNewsAction value) error,
   }) {
@@ -259,6 +247,7 @@ class _$LoadNewsAction implements LoadNewsAction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadNewsAction value)? loadNewsAction,
     TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(SearchNewsAction value)? searchNews,
     TResult? Function(LoadedNewsAction value)? loadedNewsAction,
     TResult? Function(ErrorNewsAction value)? error,
   }) {
@@ -270,6 +259,7 @@ class _$LoadNewsAction implements LoadNewsAction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadNewsAction value)? loadNewsAction,
     TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(SearchNewsAction value)? searchNews,
     TResult Function(LoadedNewsAction value)? loadedNewsAction,
     TResult Function(ErrorNewsAction value)? error,
     required TResult orElse(),
@@ -287,23 +277,19 @@ abstract class LoadNewsAction implements NewsActions {
       final bool forceRemoteFetch,
       final String? country}) = _$LoadNewsAction;
 
-  @override
   bool get top;
   bool get forceRemoteFetch;
   String? get country;
-  @override
   @JsonKey(ignore: true)
   _$$LoadNewsActionCopyWith<_$LoadNewsAction> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoadingNewsActionCopyWith<$Res>
-    implements $NewsActionsCopyWith<$Res> {
+abstract class _$$LoadingNewsActionCopyWith<$Res> {
   factory _$$LoadingNewsActionCopyWith(
           _$LoadingNewsAction value, $Res Function(_$LoadingNewsAction) then) =
       __$$LoadingNewsActionCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({bool top});
 }
@@ -366,6 +352,7 @@ class _$LoadingNewsAction implements LoadingNewsAction {
     required TResult Function(bool top, bool forceRemoteFetch, String? country)
         loadNewsAction,
     required TResult Function(bool top) loadingNewsAction,
+    required TResult Function(String characters, String lan) searchNews,
     required TResult Function(
             bool top, List<Article> articles, bool validity, bool freshness)
         loadedNewsAction,
@@ -380,6 +367,7 @@ class _$LoadingNewsAction implements LoadingNewsAction {
     TResult? Function(bool top, bool forceRemoteFetch, String? country)?
         loadNewsAction,
     TResult? Function(bool top)? loadingNewsAction,
+    TResult? Function(String characters, String lan)? searchNews,
     TResult? Function(
             bool top, List<Article> articles, bool validity, bool freshness)?
         loadedNewsAction,
@@ -394,6 +382,7 @@ class _$LoadingNewsAction implements LoadingNewsAction {
     TResult Function(bool top, bool forceRemoteFetch, String? country)?
         loadNewsAction,
     TResult Function(bool top)? loadingNewsAction,
+    TResult Function(String characters, String lan)? searchNews,
     TResult Function(
             bool top, List<Article> articles, bool validity, bool freshness)?
         loadedNewsAction,
@@ -411,6 +400,7 @@ class _$LoadingNewsAction implements LoadingNewsAction {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadNewsAction value) loadNewsAction,
     required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(SearchNewsAction value) searchNews,
     required TResult Function(LoadedNewsAction value) loadedNewsAction,
     required TResult Function(ErrorNewsAction value) error,
   }) {
@@ -422,6 +412,7 @@ class _$LoadingNewsAction implements LoadingNewsAction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadNewsAction value)? loadNewsAction,
     TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(SearchNewsAction value)? searchNews,
     TResult? Function(LoadedNewsAction value)? loadedNewsAction,
     TResult? Function(ErrorNewsAction value)? error,
   }) {
@@ -433,6 +424,7 @@ class _$LoadingNewsAction implements LoadingNewsAction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadNewsAction value)? loadNewsAction,
     TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(SearchNewsAction value)? searchNews,
     TResult Function(LoadedNewsAction value)? loadedNewsAction,
     TResult Function(ErrorNewsAction value)? error,
     required TResult orElse(),
@@ -448,21 +440,189 @@ abstract class LoadingNewsAction implements NewsActions {
   const factory LoadingNewsAction({required final bool top}) =
       _$LoadingNewsAction;
 
-  @override
   bool get top;
-  @override
   @JsonKey(ignore: true)
   _$$LoadingNewsActionCopyWith<_$LoadingNewsAction> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoadedNewsActionCopyWith<$Res>
-    implements $NewsActionsCopyWith<$Res> {
+abstract class _$$SearchNewsActionCopyWith<$Res> {
+  factory _$$SearchNewsActionCopyWith(
+          _$SearchNewsAction value, $Res Function(_$SearchNewsAction) then) =
+      __$$SearchNewsActionCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String characters, String lan});
+}
+
+/// @nodoc
+class __$$SearchNewsActionCopyWithImpl<$Res>
+    extends _$NewsActionsCopyWithImpl<$Res, _$SearchNewsAction>
+    implements _$$SearchNewsActionCopyWith<$Res> {
+  __$$SearchNewsActionCopyWithImpl(
+      _$SearchNewsAction _value, $Res Function(_$SearchNewsAction) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characters = null,
+    Object? lan = null,
+  }) {
+    return _then(_$SearchNewsAction(
+      characters: null == characters
+          ? _value.characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as String,
+      lan: null == lan
+          ? _value.lan
+          : lan // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchNewsAction implements SearchNewsAction {
+  const _$SearchNewsAction({required this.characters, required this.lan});
+
+  @override
+  final String characters;
+  @override
+  final String lan;
+
+  @override
+  String toString() {
+    return 'NewsActions.searchNews(characters: $characters, lan: $lan)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchNewsAction &&
+            (identical(other.characters, characters) ||
+                other.characters == characters) &&
+            (identical(other.lan, lan) || other.lan == lan));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, characters, lan);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchNewsActionCopyWith<_$SearchNewsAction> get copyWith =>
+      __$$SearchNewsActionCopyWithImpl<_$SearchNewsAction>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool top, bool forceRemoteFetch, String? country)
+        loadNewsAction,
+    required TResult Function(bool top) loadingNewsAction,
+    required TResult Function(String characters, String lan) searchNews,
+    required TResult Function(
+            bool top, List<Article> articles, bool validity, bool freshness)
+        loadedNewsAction,
+    required TResult Function(String? message, bool top) error,
+  }) {
+    return searchNews(characters, lan);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool top, bool forceRemoteFetch, String? country)?
+        loadNewsAction,
+    TResult? Function(bool top)? loadingNewsAction,
+    TResult? Function(String characters, String lan)? searchNews,
+    TResult? Function(
+            bool top, List<Article> articles, bool validity, bool freshness)?
+        loadedNewsAction,
+    TResult? Function(String? message, bool top)? error,
+  }) {
+    return searchNews?.call(characters, lan);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool top, bool forceRemoteFetch, String? country)?
+        loadNewsAction,
+    TResult Function(bool top)? loadingNewsAction,
+    TResult Function(String characters, String lan)? searchNews,
+    TResult Function(
+            bool top, List<Article> articles, bool validity, bool freshness)?
+        loadedNewsAction,
+    TResult Function(String? message, bool top)? error,
+    required TResult orElse(),
+  }) {
+    if (searchNews != null) {
+      return searchNews(characters, lan);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadNewsAction value) loadNewsAction,
+    required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(SearchNewsAction value) searchNews,
+    required TResult Function(LoadedNewsAction value) loadedNewsAction,
+    required TResult Function(ErrorNewsAction value) error,
+  }) {
+    return searchNews(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadNewsAction value)? loadNewsAction,
+    TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(SearchNewsAction value)? searchNews,
+    TResult? Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult? Function(ErrorNewsAction value)? error,
+  }) {
+    return searchNews?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadNewsAction value)? loadNewsAction,
+    TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(SearchNewsAction value)? searchNews,
+    TResult Function(LoadedNewsAction value)? loadedNewsAction,
+    TResult Function(ErrorNewsAction value)? error,
+    required TResult orElse(),
+  }) {
+    if (searchNews != null) {
+      return searchNews(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchNewsAction implements NewsActions {
+  const factory SearchNewsAction(
+      {required final String characters,
+      required final String lan}) = _$SearchNewsAction;
+
+  String get characters;
+  String get lan;
+  @JsonKey(ignore: true)
+  _$$SearchNewsActionCopyWith<_$SearchNewsAction> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadedNewsActionCopyWith<$Res> {
   factory _$$LoadedNewsActionCopyWith(
           _$LoadedNewsAction value, $Res Function(_$LoadedNewsAction) then) =
       __$$LoadedNewsActionCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({bool top, List<Article> articles, bool validity, bool freshness});
 }
@@ -563,6 +723,7 @@ class _$LoadedNewsAction implements LoadedNewsAction {
     required TResult Function(bool top, bool forceRemoteFetch, String? country)
         loadNewsAction,
     required TResult Function(bool top) loadingNewsAction,
+    required TResult Function(String characters, String lan) searchNews,
     required TResult Function(
             bool top, List<Article> articles, bool validity, bool freshness)
         loadedNewsAction,
@@ -577,6 +738,7 @@ class _$LoadedNewsAction implements LoadedNewsAction {
     TResult? Function(bool top, bool forceRemoteFetch, String? country)?
         loadNewsAction,
     TResult? Function(bool top)? loadingNewsAction,
+    TResult? Function(String characters, String lan)? searchNews,
     TResult? Function(
             bool top, List<Article> articles, bool validity, bool freshness)?
         loadedNewsAction,
@@ -591,6 +753,7 @@ class _$LoadedNewsAction implements LoadedNewsAction {
     TResult Function(bool top, bool forceRemoteFetch, String? country)?
         loadNewsAction,
     TResult Function(bool top)? loadingNewsAction,
+    TResult Function(String characters, String lan)? searchNews,
     TResult Function(
             bool top, List<Article> articles, bool validity, bool freshness)?
         loadedNewsAction,
@@ -608,6 +771,7 @@ class _$LoadedNewsAction implements LoadedNewsAction {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadNewsAction value) loadNewsAction,
     required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(SearchNewsAction value) searchNews,
     required TResult Function(LoadedNewsAction value) loadedNewsAction,
     required TResult Function(ErrorNewsAction value) error,
   }) {
@@ -619,6 +783,7 @@ class _$LoadedNewsAction implements LoadedNewsAction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadNewsAction value)? loadNewsAction,
     TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(SearchNewsAction value)? searchNews,
     TResult? Function(LoadedNewsAction value)? loadedNewsAction,
     TResult? Function(ErrorNewsAction value)? error,
   }) {
@@ -630,6 +795,7 @@ class _$LoadedNewsAction implements LoadedNewsAction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadNewsAction value)? loadNewsAction,
     TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(SearchNewsAction value)? searchNews,
     TResult Function(LoadedNewsAction value)? loadedNewsAction,
     TResult Function(ErrorNewsAction value)? error,
     required TResult orElse(),
@@ -648,24 +814,20 @@ abstract class LoadedNewsAction implements NewsActions {
       required final bool validity,
       required final bool freshness}) = _$LoadedNewsAction;
 
-  @override
   bool get top;
   List<Article> get articles;
   bool get validity;
   bool get freshness;
-  @override
   @JsonKey(ignore: true)
   _$$LoadedNewsActionCopyWith<_$LoadedNewsAction> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorNewsActionCopyWith<$Res>
-    implements $NewsActionsCopyWith<$Res> {
+abstract class _$$ErrorNewsActionCopyWith<$Res> {
   factory _$$ErrorNewsActionCopyWith(
           _$ErrorNewsAction value, $Res Function(_$ErrorNewsAction) then) =
       __$$ErrorNewsActionCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String? message, bool top});
 }
@@ -736,6 +898,7 @@ class _$ErrorNewsAction implements ErrorNewsAction {
     required TResult Function(bool top, bool forceRemoteFetch, String? country)
         loadNewsAction,
     required TResult Function(bool top) loadingNewsAction,
+    required TResult Function(String characters, String lan) searchNews,
     required TResult Function(
             bool top, List<Article> articles, bool validity, bool freshness)
         loadedNewsAction,
@@ -750,6 +913,7 @@ class _$ErrorNewsAction implements ErrorNewsAction {
     TResult? Function(bool top, bool forceRemoteFetch, String? country)?
         loadNewsAction,
     TResult? Function(bool top)? loadingNewsAction,
+    TResult? Function(String characters, String lan)? searchNews,
     TResult? Function(
             bool top, List<Article> articles, bool validity, bool freshness)?
         loadedNewsAction,
@@ -764,6 +928,7 @@ class _$ErrorNewsAction implements ErrorNewsAction {
     TResult Function(bool top, bool forceRemoteFetch, String? country)?
         loadNewsAction,
     TResult Function(bool top)? loadingNewsAction,
+    TResult Function(String characters, String lan)? searchNews,
     TResult Function(
             bool top, List<Article> articles, bool validity, bool freshness)?
         loadedNewsAction,
@@ -781,6 +946,7 @@ class _$ErrorNewsAction implements ErrorNewsAction {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadNewsAction value) loadNewsAction,
     required TResult Function(LoadingNewsAction value) loadingNewsAction,
+    required TResult Function(SearchNewsAction value) searchNews,
     required TResult Function(LoadedNewsAction value) loadedNewsAction,
     required TResult Function(ErrorNewsAction value) error,
   }) {
@@ -792,6 +958,7 @@ class _$ErrorNewsAction implements ErrorNewsAction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadNewsAction value)? loadNewsAction,
     TResult? Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult? Function(SearchNewsAction value)? searchNews,
     TResult? Function(LoadedNewsAction value)? loadedNewsAction,
     TResult? Function(ErrorNewsAction value)? error,
   }) {
@@ -803,6 +970,7 @@ class _$ErrorNewsAction implements ErrorNewsAction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadNewsAction value)? loadNewsAction,
     TResult Function(LoadingNewsAction value)? loadingNewsAction,
+    TResult Function(SearchNewsAction value)? searchNews,
     TResult Function(LoadedNewsAction value)? loadedNewsAction,
     TResult Function(ErrorNewsAction value)? error,
     required TResult orElse(),
@@ -819,9 +987,7 @@ abstract class ErrorNewsAction implements NewsActions {
       {final String? message, required final bool top}) = _$ErrorNewsAction;
 
   String? get message;
-  @override
   bool get top;
-  @override
   @JsonKey(ignore: true)
   _$$ErrorNewsActionCopyWith<_$ErrorNewsAction> get copyWith =>
       throw _privateConstructorUsedError;
