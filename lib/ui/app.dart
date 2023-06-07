@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:newsapp/config/theme.dart';
 import 'package:newsapp/ui/screens/article/article_screen.dart';
-import 'package:newsapp/ui/screens/article/article_screen_connector.dart';
 import 'package:newsapp/ui/screens/common_widgets/drawer/app_drawer.dart';
 import 'package:newsapp/ui/screens/news_home/news_screen.dart';
 import 'package:newsapp/ui/screens/saved_shared/saved_shared_connector.dart';
@@ -41,10 +40,10 @@ class App extends StatelessWidget {
           supportedLocales: Language.values.map((e) => e.locale),
           routes: {
             '/': (_) => const NewsScreen(),
-            SavedSharedScreen.sharedRouteName: (_) => const SavedSharedScreenConnector(AppScreen.shared),
-            SavedSharedScreen.savedRouteName: (_) => const SavedSharedScreenConnector(AppScreen.saved),
+            SavedSharedScreen.sharedRouteName: (_) => const SavedSharedScreen(AppScreen.shared),
+            SavedSharedScreen.savedRouteName: (_) => const SavedSharedScreen(AppScreen.saved),
             SettingsScreen.routeName: (_) => const SettingsScreen(),
-            ArticleScreen.routeName: (_) => const ArticleScreenConnector(),
+            ArticleScreen.routeName: (_) => const ArticleScreen(),
           },
         ),
       ),

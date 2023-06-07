@@ -2,10 +2,10 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:newsapp/ui/screens/common_widgets/drawer/app_drawer.dart';
 import 'package:newsapp/ui/screens/common_widgets/drawer/drawer_icon_appbar.dart';
 import 'package:newsapp/ui/screens/saved_shared/saved_shared_news_list.dart';
-
 
 class SavedSharedScreen extends StatefulWidget {
   final AppScreen screen;
@@ -20,8 +20,8 @@ class SavedSharedScreen extends StatefulWidget {
 }
 
 class _SavedSharedScreenState extends State<SavedSharedScreen> {
-  void  _refreshList() =>
-      context.read<SavedSharedNewsCubit>().getSavedOrSharedNews(saved: widget.screen == AppScreen.saved);
+  void _refreshList() => StoreProvider.of<AppState>(context, listen: false)
+      .dispatch(SavedNewsActions.loadNewsAction(shared: widget.screen == AppScreen.saved));
 
   @override
   void initState() {
@@ -34,13 +34,17 @@ class _SavedSharedScreenState extends State<SavedSharedScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: const DrawerIconAppBar(),
-        title: Text(
-            widget.screen == AppScreen.saved ? AppLocalizations.of(context)!.saved : AppLocalizations.of(context)!.shared),
+        title: Text(widget.screen == AppScreen.saved
+            ? AppLocalizations.of(context)!.saved
+            : AppLocalizations.of(context)!.shared),
       ),
       drawer: AppDrawer(
         selectedScreen: widget.screen,
       ),
-      body: SavedSharedNewsList(_refreshList, screen: widget.screen,),
+      body: SavedSharedNewsList(
+        _refreshList,
+        screen: widget.screen,
+      ),
     );
   }
 }
