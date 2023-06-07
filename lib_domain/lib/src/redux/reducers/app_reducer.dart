@@ -11,5 +11,5 @@ AppState appReducer(AppState state, action) {
       settingsState: settingsReducer(state.settingsState, action),
       articleUpdateState: articleUpdateReducer(state.articleUpdateState, action),
       savedNewsState: getSavedNewsReducers(state.savedNewsState, action),
-      sharedNewsState: getSavedNewsReducers(state.savedNewsState, action, shared: true));
+      sharedNewsState: getSavedNewsReducers(state.sharedNewsState, action, shared: true));
 }

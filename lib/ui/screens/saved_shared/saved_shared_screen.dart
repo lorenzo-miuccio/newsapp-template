@@ -21,7 +21,7 @@ class SavedSharedScreen extends StatefulWidget {
 
 class _SavedSharedScreenState extends State<SavedSharedScreen> {
   void _refreshList() => StoreProvider.of<AppState>(context, listen: false)
-      .dispatch(SavedNewsActions.loadNewsAction(shared: widget.screen == AppScreen.saved));
+      .dispatch(SavedNewsActions.loadNewsAction(shared: widget.screen == AppScreen.shared));
 
   @override
   void initState() {

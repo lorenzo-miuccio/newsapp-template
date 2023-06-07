@@ -6,10 +6,10 @@ import 'package:domain/src/redux/app_state.dart';
 import 'package:domain/src/repository/news_repository.dart';
 import 'package:redux/redux.dart';
 
-class NewsMiddleware implements MiddlewareClass<AppState> {
+class SavedNewsMiddleware implements MiddlewareClass<AppState> {
   final NewsRepository _newsRepository;
 
-  NewsMiddleware(this._newsRepository);
+  SavedNewsMiddleware(this._newsRepository);
 
   @override
   call(Store<AppState> store, action, NextDispatcher next) {
