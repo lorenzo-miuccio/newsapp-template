@@ -1,11 +1,12 @@
-import 'package:domain/domain.dart';
-import 'package:domain/src/redux/actions/article_update_actions.dart';
+import 'package:domain/src/redux/actions/update_article_actions.dart';
+import 'package:domain/src/redux/app_state.dart';
+import 'package:domain/src/repository/news_repository.dart';
 import 'package:redux/redux.dart';
 
-class UpdateArticleMIddleWare implements MiddlewareClass<AppState> {
+class UpdateArticleMiddleWare implements MiddlewareClass<AppState> {
   final NewsRepository _newsRepo;
 
-  UpdateArticleMIddleWare(this._newsRepo);
+  UpdateArticleMiddleWare(this._newsRepo);
 
   @override
   call(Store<AppState> store, action, NextDispatcher next) {

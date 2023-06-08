@@ -35,7 +35,6 @@ class _ArticleScreenState extends State<ArticleScreen> {
   @override
   Widget build(BuildContext context) {
     final article = _article!;
-    print(article.isSaved);
     return Theme(
       data: _visibilityFeature
           ? (MediaQuery.of(context).platformBrightness == Brightness.light
@@ -89,9 +88,6 @@ class _ArticleScreenState extends State<ArticleScreen> {
                         article.text,
                         style: TextStyle(fontFamily: _visibilityFeature ? 'Noto Serif' : 'Roboto'),
                       ),
-                      TextButton(
-                          onPressed: () => Navigator.of(context).pushNamed(SavedSharedScreen.savedRouteName),
-                          child: const Text('push'))
                     ],
                   ),
                 ),

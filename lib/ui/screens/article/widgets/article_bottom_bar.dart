@@ -1,6 +1,7 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:newsapp/utils/update_snackbar.dart';
 
 import 'package:share_plus/share_plus.dart';
@@ -28,9 +29,9 @@ class _ArticleBottomBarState extends State<ArticleBottomBar> {
     });
   }
 
-  void _addToShared(BuildContext context) => context.read<UpdateArticleCubit>().shareOrRemoveArticle(_article);
+  void _addToShared(BuildContext context) => StoreProvider.of<AppState>(context, listen: false).dispatch(UpdateArticleActions.shareOrUnShare(_article));
 
-  void _addOrRemoveSave(BuildContext context) => context.read<UpdateArticleCubit>().saveOrRemoveArticle(_article);
+  void _addOrRemoveSave(BuildContext context) => StoreProvider.of<AppState>(context, listen: false).dispatch(UpdateArticleActions.saveOrUnSave(_article));
 
   void _updateArticleNotification(UpdateStatus status) {
     showUpdateSnackBar(context, status);
@@ -49,8 +50,10 @@ class _ArticleBottomBarState extends State<ArticleBottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<UpdateArticleCubit, ArticleUpdateState>(
-      listener: (_, state) => state.whenOrNull(
+    return StoreConnector<AppState, ArticleUpdateState>(
+      converter: (store) => store.state.articleUpdateState,
+      rebuildOnChange: false,
+      onWillChange: (_, state) => state.whenOrNull(
         savedStatus: (status) {
           status
               ? _updateArticleNotification(UpdateStatus.addedToSaved)
@@ -65,7 +68,7 @@ class _ArticleBottomBarState extends State<ArticleBottomBar> {
         },
         error: (_) => _updateArticleNotification(UpdateStatus.error),
       ),
-      child: Container(
+      builder: (_, __) => Container(
         height: 80,
         color: Colors.grey.withOpacity(0.3),
         child: ButtonTheme(

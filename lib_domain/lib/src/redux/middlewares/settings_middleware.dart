@@ -1,5 +1,5 @@
 import 'package:domain/domain.dart';
-import 'package:domain/src/redux/actions/article_update_actions.dart';
+import 'package:domain/src/redux/actions/update_article_actions.dart';
 import 'package:domain/src/redux/actions/settings_actions.dart';
 import 'package:redux/redux.dart';
 

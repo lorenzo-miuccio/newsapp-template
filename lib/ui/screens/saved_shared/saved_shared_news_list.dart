@@ -1,6 +1,5 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -19,19 +18,20 @@ class SavedSharedNewsList extends StatelessWidget {
   const SavedSharedNewsList(this.refresh, {Key? key, required this.screen}) : super(key: key);
 
   void _removeFromSaveOrShare(BuildContext context, Article article) {
-    final updateArticleCubit = context.read<UpdateArticleCubit>();
+    final store = StoreProvider.of<AppState>(context, listen: false);
+
+    // final updateArticleCubit = context.read<UpdateArticleCubit>();
     screen == AppScreen.shared
-        ? updateArticleCubit.shareOrRemoveArticle(article)
-        : updateArticleCubit.saveOrRemoveArticle(article);
+        ? store.dispatch(UpdateArticleActions.shareOrUnShare(article))
+        : store.dispatch(UpdateArticleActions.saveOrUnSave(article));
   }
 
   @override
   Widget build(BuildContext context) {
-
     return StoreConnector<AppState, _ViewModel>(
       converter: _ViewModel.fromStore,
       distinct: true,
-      onDidChange: (previousVm, currentVm) => currentVm.articleUpdateState.whenOrNull(
+      onWillChange: (previousVm, currentVm) => currentVm.articleUpdateState.whenOrNull(
         savedStatus: (_) {
           showUpdateSnackBar(context, UpdateStatus.removedFromSaved);
           refresh();
@@ -83,4 +83,15 @@ class _ViewModel {
 
   factory _ViewModel.fromStore(Store<AppState> store) =>
       _ViewModel(articleUpdateState: store.state.articleUpdateState, savedNewsState: store.state.savedNewsState);
+
+  @override
+  bool operator ==(Object other) {
+    return other is _ViewModel &&
+        other.articleUpdateState == articleUpdateState &&
+        other.savedNewsState == savedNewsState;
+  }
+
+  @override
+  int get hashCode => Object.hash(articleUpdateState, savedNewsState);
+
 }

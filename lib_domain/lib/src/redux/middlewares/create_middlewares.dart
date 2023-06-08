@@ -9,7 +9,7 @@ List<dynamic Function(Store<AppState>, dynamic, dynamic Function(dynamic))> crea
         NewsRepository newsRepository, LanguageRepository languageRepository) =>
     [
       NewsMiddleware(newsRepository),
-      UpdateArticleMIddleWare(newsRepository),
+      UpdateArticleMiddleWare(newsRepository),
       SettingsMiddleware(languageRepository),
       SavedNewsMiddleware(newsRepository)
     ];

@@ -20,7 +20,7 @@ export 'src/redux/middlewares/create_middlewares.dart';
 export 'src/redux/middlewares/news_middleware.dart';
 export 'src/redux/actions/news_actions.dart';
 export 'src/redux/actions/settings_actions.dart';
-export 'src/redux/actions/article_update_actions.dart';
+export 'src/redux/actions/update_article_actions.dart';
 export 'src/redux/actions/saved_news_actions.dart';
 
 
