@@ -1,6 +1,7 @@
+import 'dart:async';
+
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:newsapp/utils/update_snackbar.dart';
 
@@ -22,6 +23,42 @@ class ArticleBottomBar extends StatefulWidget {
 
 class _ArticleBottomBarState extends State<ArticleBottomBar> {
   late Article _article = widget.article;
+  late StreamSubscription<AppState> onChangeStoreSub;
+  ArticleUpdateState? previousUpdateState;
+
+  @override
+  void initState() {
+    onChangeStoreSub = StoreProvider.of<AppState>(context, listen: false).onChange.listen((state) {
+      final updateState = state.articleUpdateState;
+
+      if (previousUpdateState != updateState) {
+        previousUpdateState = updateState;
+        updateState.whenOrNull(
+          savedStatus: (status) {
+            status
+                ? _updateArticleNotification(UpdateStatus.addedToSaved)
+                : _updateArticleNotification(UpdateStatus.removedFromSaved);
+            return;
+          },
+          sharedStatus: (status) {
+            status
+                ? _updateArticleNotification(UpdateStatus.addedToShared)
+                : _updateArticleNotification(UpdateStatus.removedFromShared);
+            return;
+          },
+          error: (_) => _updateArticleNotification(UpdateStatus.error),
+        );
+      }
+    });
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    onChangeStoreSub.cancel();
+    super.dispose();
+  }
 
   void _shareArticle(BuildContext context) {
     Share.shareWithResult('Check this article! ${_article.url}').then((value) {
@@ -29,9 +66,11 @@ class _ArticleBottomBarState extends State<ArticleBottomBar> {
     });
   }
 
-  void _addToShared(BuildContext context) => StoreProvider.of<AppState>(context, listen: false).dispatch(UpdateArticleActions.shareOrUnShare(_article));
+  void _addToShared(BuildContext context) =>
+      StoreProvider.of<AppState>(context, listen: false).dispatch(UpdateArticleActions.shareOrUnShare(_article));
 
-  void _addOrRemoveSave(BuildContext context) => StoreProvider.of<AppState>(context, listen: false).dispatch(UpdateArticleActions.saveOrUnSave(_article));
+  void _addOrRemoveSave(BuildContext context) =>
+      StoreProvider.of<AppState>(context, listen: false).dispatch(UpdateArticleActions.saveOrUnSave(_article));
 
   void _updateArticleNotification(UpdateStatus status) {
     showUpdateSnackBar(context, status);
@@ -50,46 +89,27 @@ class _ArticleBottomBarState extends State<ArticleBottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, ArticleUpdateState>(
-      converter: (store) => store.state.articleUpdateState,
-      rebuildOnChange: false,
-      onWillChange: (_, state) => state.whenOrNull(
-        savedStatus: (status) {
-          status
-              ? _updateArticleNotification(UpdateStatus.addedToSaved)
-              : _updateArticleNotification(UpdateStatus.removedFromSaved);
-          return;
-        },
-        sharedStatus: (status) {
-          status
-              ? _updateArticleNotification(UpdateStatus.addedToShared)
-              : _updateArticleNotification(UpdateStatus.removedFromShared);
-          return;
-        },
-        error: (_) => _updateArticleNotification(UpdateStatus.error),
-      ),
-      builder: (_, __) => Container(
-        height: 80,
-        color: Colors.grey.withOpacity(0.3),
-        child: ButtonTheme(
-          buttonColor: Theme.of(context).primaryColor,
-          child: Row(
-            children: [
-              IconButton(
-                onPressed: () => _addOrRemoveSave(context),
-                icon: _article.isSaved ? const Icon(Icons.bookmark_outlined) : const Icon(Icons.bookmark_border),
-              ),
-              IconButton(
-                onPressed: () => _shareArticle(context),
-                icon: _article.isShared ? const Icon(Icons.share) : const Icon(Icons.share_outlined),
-              ),
-              IconButton(
-                  onPressed: widget.changeVisibility,
-                  icon: widget.visibilityFeature
-                      ? const Icon(Icons.visibility_off_outlined)
-                      : const Icon(Icons.visibility_outlined))
-            ],
-          ),
+    return Container(
+      height: 80,
+      color: Colors.grey.withOpacity(0.3),
+      child: ButtonTheme(
+        buttonColor: Theme.of(context).primaryColor,
+        child: Row(
+          children: [
+            IconButton(
+              onPressed: () => _addOrRemoveSave(context),
+              icon: _article.isSaved ? const Icon(Icons.bookmark_outlined) : const Icon(Icons.bookmark_border),
+            ),
+            IconButton(
+              onPressed: () => _shareArticle(context),
+              icon: _article.isShared ? const Icon(Icons.share) : const Icon(Icons.share_outlined),
+            ),
+            IconButton(
+                onPressed: widget.changeVisibility,
+                icon: widget.visibilityFeature
+                    ? const Icon(Icons.visibility_off_outlined)
+                    : const Icon(Icons.visibility_outlined))
+          ],
         ),
       ),
     );

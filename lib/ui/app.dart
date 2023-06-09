@@ -40,8 +40,8 @@ class App extends StatelessWidget {
           supportedLocales: Language.values.map((e) => e.locale),
           routes: {
             '/': (_) => const NewsScreen(),
-            SavedSharedScreen.sharedRouteName: (_) => const SavedSharedScreen(AppScreen.shared),
-            SavedSharedScreen.savedRouteName: (_) => const SavedSharedScreen(AppScreen.saved),
+            // SavedSharedScreen.sharedRouteName: (_) => const SavedSharedScreen(AppScreen.shared),
+            // SavedSharedScreen.savedRouteName: (_) => const SavedSharedScreen(AppScreen.saved),
             SettingsScreen.routeName: (_) => const SettingsScreen(),
             ArticleScreen.routeName: (_) => const ArticleScreen(),
           },

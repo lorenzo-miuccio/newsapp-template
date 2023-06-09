@@ -15,8 +15,10 @@ class UpdateArticleMiddleWare implements MiddlewareClass<AppState> {
         saveOrUnSave: (article) {
           _newsRepo
               .updateLocalArticle(article.copyWith(isSaved: !article.isSaved))
-              .then((value) => store.dispatch(UpdateArticleActions.saveStatusChanged(status: !article.isSaved)))
-              .catchError((_) => UpdateArticleActions.error());
+              .then((_) => store.dispatch(UpdateArticleActions.saveStatusChanged(status: !article.isSaved)))
+              .catchError((error) {
+            store.dispatch(UpdateArticleActions.error());
+          });
         },
         shareOrUnShare: (article) {
           _newsRepo

@@ -1,7 +1,7 @@
 import 'package:domain/src/entity/article.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'article_update_actions.freezed.dart';
+part 'update_article_actions.freezed.dart';
 
 @freezed
 class UpdateArticleActions with _$UpdateArticleActions {
