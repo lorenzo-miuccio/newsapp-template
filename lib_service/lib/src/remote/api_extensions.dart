@@ -4,9 +4,9 @@ import 'package:dio/dio.dart';
 extension CatchApiRequestErrorsExtension<T> on Future<T> {
   Future<T> catchApiRequestErrors() => catchError((e, s) {
         switch (e.runtimeType) {
-          case DioError:
-            e = e as DioError;
-            if (e.type == DioErrorType.badResponse) {
+          case DioException:
+            e = e as DioException;
+            if (e.type == DioExceptionType.badResponse) {
               final res = e.response;
               throw HttpStatusException('${res?.statusCode}');
             } else {
